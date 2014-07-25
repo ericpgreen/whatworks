@@ -20,7 +20,7 @@ Over the past few decades, the rich world has transferred approximately 2 trilli
 
 We will examine these and other questions by sampling a selection of popular titles in global health and development. Critically, we will consider the role of the international community—and each of us as world citizens—in contributing to progress.
 
-We will begin the semester by reading two accounts of live in urban slums. In the first, George Orwell writes a memoir of his marginalized experience living in two of the world's greatest cities in the first half of the 20th century. In the second, Katherine Boo describes live in a modern-day Mumbai slum.
+We will begin the semester by reading two accounts of life in urban slums. In the first, George Orwell writes a memoir of his experience living on the fringes of society in two of the world's greatest cities in the first half of the 20th century. In the second, Katherine Boo describes live in a modern-day Mumbai slum.
 
 Next, we will turn to two books that will give us an opportunity to consider guiding frameworks for thinking about the world's problems and society's role in alleviating suffering. In "To Repair the World", we'll read a series of short speeches by Paul Farmer, the well-known doctor and Duke alum. In "Development as Freedom", we'll consider economist Amartya Sen's argument that poverty is the result of one or more "unfreedoms".
 
