@@ -18,7 +18,7 @@ Incomes are stagnant in many parts of the world, and the gap between the rich an
 
 Over the past few decades, the rich world has transferred approximately 2 trillion in aid to developing countries. Has it all been a waste? Money thrown down "Third word rat-holes"? Or has this money been woefully inadequate? Are their any reasons for optimism?
 
-We will examine these and other questions by sampling a selection of popular titles in global health and development. Critically, we will consider the role of the international community---and each of us as world citizens---in contributing to progress.
+We will examine these and other questions by sampling a selection of popular titles in global health and development. Critically, we will consider the role of the international community—and each of us as world citizens—in contributing to progress.
 
 We will begin the semester by reading two accounts of live in urban slums. In the first, George Orwell writes a memoir of his marginalized experience living in two of the world's greatest cities in the first half of the 20th century. In the second, Katherine Boo describes live in a modern-day Mumbai slum.
 
