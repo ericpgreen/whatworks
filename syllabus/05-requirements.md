@@ -8,7 +8,7 @@ You are permitted 2 unexcused absences throughout the semester. Beyond that, eac
 
 Officially, Duke permits students to miss work due to absence from class in four circumstances: illness; personal emergencies; religious observance; and varsity athletic participation. Please take a moment to [read](http://trinity.duke.edu/undergraduate/academic-policies/missing-work-classes) how Duke defines each circumstance. Missed work associated with any other absence is not covered by this policy and will be considered on a case-by-case basis.
 
-## Oral Exam (25%)
+## Midterm Exam (25%)
 
 Your midterm will be a 9-minute oral exam during class time on October 7 or 9 (private meetings every 10 minutes). I will ask you three questions. You will have 3-minutes to answer each question, and you may skip one question. I will evaluate each answer on a 0-5 scale. I will drop your lowest score, so total scores can range from 0 to 10. Skipping a question will not count as your lowest score.
 
