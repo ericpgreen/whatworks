@@ -16,7 +16,7 @@ COURSE DESCRIPTION
 
 Incomes are stagnant in many parts of the world, and the gap between the rich and poor has never been greater. Every year, more than 6 million children die before their fifth birthday, mostly from preventable causes. More than 35 million people are living with HIV/AIDS, and one million die every year. In 2014, there will likely be more than 200 million cases of malaria and more than 8 million new cases of TB. One billion people live in extreme poverty.
 
-Over the past few decades, the rich world has transferred approximately 2 trillion in aid to developing countries. Has it all been a waste? Money thrown down "Third word rat-holes"? Or has this money been woefully inadequate? Are their any reasons for optimism?
+Over the past few decades, the rich world has transferred approximately 2 trillion in aid to developing countries. Has it all been a waste? Money thrown down "Third word rat-holes"? Or has this money been woefully inadequate? Are there any reasons for optimism?
 
 We will examine these and other questions by sampling a selection of popular titles in global health and development. Critically, we will consider the role of the international community—and each of us as world citizens—in contributing to progress.
 
