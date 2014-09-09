@@ -3,7 +3,7 @@
 We will read several books and screen two films this semester, just about one per week:
 
 - **_Down and Out in Paris and London_**, George Orwell ([Amazon](http://www.amazon.com/Down-Paris-London-George-Orwell-ebook/dp/B003K16PAU/ref=tmm_kin_title_0?_encoding=UTF8&sr=&qid=)/on reserve)
-- **_Beyond the Beautiful Forevers_**, Katherine Boo ([Amazon](http://www.amazon.com/Behind-Beautiful-Forevers-Mumbai-undercity-ebook/dp/B004J4X7JO/ref=sr_1_1?s=digital-text&ie=UTF8&qid=1406222808&sr=1-1&keywords=Beyond+the+Beautiful+Forevers)/[Duke eBook](http://search.library.duke.edu/search?id=DUKE006076118)) 
+- **_Behind the Beautiful Forevers_**, Katherine Boo ([Amazon](http://www.amazon.com/Behind-Beautiful-Forevers-Mumbai-undercity-ebook/dp/B004J4X7JO/ref=sr_1_1?s=digital-text&ie=UTF8&qid=1406222808&sr=1-1&keywords=Beyond+the+Beautiful+Forevers)/[Duke eBook](http://search.library.duke.edu/search?id=DUKE006076118)) 
 - **_To Repair the World_**, Paul Farmer ([Amazon](http://www.amazon.com/Repair-World-Generation-California-Anthropology-ebook/dp/B00BXQ2OVI/ref=sr_1_1?s=digital-text&ie=UTF8&qid=1406222903&sr=1-1&keywords=to+repair+the+world)/on reserve)
 - **_Development as Freedom_**, Amartya Sen ([Amazon](http://www.amazon.com/Development-as-Freedom-Amartya-Sen-ebook/dp/B000SEFLIY/ref=sr_1_1?s=digital-text&ie=UTF8&qid=1406223104&sr=1-1&keywords=development+as+freedom)/on reserve)
 - **_The End of Poverty_**, Jeff Sachs ([Amazon](http://www.amazon.com/End-Poverty-Economic-Possibilities-Time-ebook/dp/B007ZHC6H6/ref=sr_1_1?s=digital-text&ie=UTF8&qid=1406223134&sr=1-1&keywords=the+end+of+poverty)/on reserve)

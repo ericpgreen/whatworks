@@ -53,7 +53,7 @@ CLASS FORMAT
 We will read several books and screen two films this semester, just about one per week:
 
 -   ***Down and Out in Paris and London***, George Orwell ([Amazon](http://www.amazon.com/Down-Paris-London-George-Orwell-ebook/dp/B003K16PAU/ref=tmm_kin_title_0?_encoding=UTF8&sr=&qid=)/on reserve)
--   ***Beyond the Beautiful Forevers***, Katherine Boo ([Amazon](http://www.amazon.com/Behind-Beautiful-Forevers-Mumbai-undercity-ebook/dp/B004J4X7JO/ref=sr_1_1?s=digital-text&ie=UTF8&qid=1406222808&sr=1-1&keywords=Beyond+the+Beautiful+Forevers)/[Duke eBook](http://search.library.duke.edu/search?id=DUKE006076118))
+-   ***Behind the Beautiful Forevers***, Katherine Boo ([Amazon](http://www.amazon.com/Behind-Beautiful-Forevers-Mumbai-undercity-ebook/dp/B004J4X7JO/ref=sr_1_1?s=digital-text&ie=UTF8&qid=1406222808&sr=1-1&keywords=Beyond+the+Beautiful+Forevers)/[Duke eBook](http://search.library.duke.edu/search?id=DUKE006076118))
 -   ***To Repair the World***, Paul Farmer ([Amazon](http://www.amazon.com/Repair-World-Generation-California-Anthropology-ebook/dp/B00BXQ2OVI/ref=sr_1_1?s=digital-text&ie=UTF8&qid=1406222903&sr=1-1&keywords=to+repair+the+world)/on reserve)
 -   ***Development as Freedom***, Amartya Sen ([Amazon](http://www.amazon.com/Development-as-Freedom-Amartya-Sen-ebook/dp/B000SEFLIY/ref=sr_1_1?s=digital-text&ie=UTF8&qid=1406223104&sr=1-1&keywords=development+as+freedom)/on reserve)
 -   ***The End of Poverty***, Jeff Sachs ([Amazon](http://www.amazon.com/End-Poverty-Economic-Possibilities-Time-ebook/dp/B007ZHC6H6/ref=sr_1_1?s=digital-text&ie=UTF8&qid=1406223134&sr=1-1&keywords=the+end+of+poverty)/on reserve)
@@ -125,8 +125,8 @@ CLASS SCHEDULE
 |Th Aug 28|Pro Tips|T Oct 21|The Idealist|
 |T Sept 02|Down and Out in Paris and London|Th Oct 23|The Idealist|
 |Th Sept 04|Down and Out in Paris and London|T Oct 28|What Works in Development|
-|T Sept 09|Beyond the Beautiful Forevers|Th Oct 30|What Works in Development|
-|Th Sept 11|Beyond the Beautiful Forevers|T Nov 04|Poor Economics|
+|T Sept 09|Behind the Beautiful Forevers|Th Oct 30|What Works in Development|
+|Th Sept 11|Behind the Beautiful Forevers|T Nov 04|Poor Economics|
 |T Sept 16|To Repair the World|Th Nov 06|Poor Economics|
 |Th Sept 18|To Repair the World|T Nov 11|Mountains Beyond Mountains|
 |T Sept 23|Development as Freedom|Th Nov 13|Mountains Beyond Mountains|

@@ -6,8 +6,8 @@ T Aug 26   | Introductions                    | Th Oct 16 | Good Fortune (Film)
 Th Aug 28  | Pro Tips                         | T Oct 21  | The Idealist
 T Sept 02  | Down and Out in Paris and London | Th Oct 23 | The Idealist
 Th Sept 04 | Down and Out in Paris and London | T Oct 28  | What Works in Development
-T Sept 09  | Beyond the Beautiful Forevers    | Th Oct 30 | What Works in Development
-Th Sept 11 | Beyond the Beautiful Forevers    | T Nov 04  | Poor Economics
+T Sept 09  | Behind the Beautiful Forevers    | Th Oct 30 | What Works in Development
+Th Sept 11 | Behind the Beautiful Forevers    | T Nov 04  | Poor Economics
 T Sept 16  | To Repair the World              | Th Nov 06 | Poor Economics
 Th Sept 18 | To Repair the World              | T Nov 11  | Mountains Beyond Mountains
 T Sept 23  | Development as Freedom           | Th Nov 13 | Mountains Beyond Mountains
