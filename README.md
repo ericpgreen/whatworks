@@ -8,7 +8,7 @@ What Works in Global Health and Development
 |**Instructor:**|Eric Green, Ph.D.|
 |**Contact:**|<eric.green@duke.edu> / 919-666-7111 (phone/sms) / @ericpgreen / Skype: epgreen|
 |**Web:**|[Facebook](https://www.google.com/url?q=https%3A%2F%2Fwww.facebook.com%2Fgroups%2F1458614514395557%2F&sa=D&sntz=1&usg=AFQjCNHxpTnN-XQOSAxJEw1780fA0WZCtQ) (gated) / [Google Drive](https://drive.google.com/folderview?id=0Bxn_jkXZ1lxudWNhcGZENUhWdTA&usp=sharing) (gated)|
-|**Classroom:**|Trent 39|
+|**Classroom:**|Link 4|
 |**Time:**|TTh 4:40-5:55|
 
 COURSE DESCRIPTION
@@ -20,9 +20,9 @@ Over the past few decades, the rich world has transferred approximately 2 trilli
 
 We will examine these and other questions by sampling a selection of popular titles in global health and development. Critically, we will consider the role of the international community—and each of us as world citizens—in contributing to progress.
 
-We will begin the semester by reading two accounts of life in urban slums. In the first, George Orwell writes a memoir of his experience living on the fringes of society in two of the world's greatest cities in the first half of the 20th century. In the second, Katherine Boo describes live in a modern-day Mumbai slum.
+We will begin the semester by reading two accounts of life in urban slums. In the first, George Orwell writes a memoir of his experience living on the fringes of society in two of the world's greatest cities in the first half of the 20th century. In the second, Katherine Boo describes life in a modern-day Mumbai slum.
 
-Next, we will turn to two books that will give us an opportunity to consider guiding frameworks for thinking about the world's problems and society's role in alleviating suffering. In "To Repair the World", we'll read a series of short speeches by Paul Farmer, the well-known doctor and Duke alum. In "Development as Freedom", we'll consider economist Amartya Sen's argument that poverty is the result of one or more "unfreedoms".
+Next, we will turn to two books that will give us an opportunity to consider guiding frameworks for thinking about the world's problems and society's role in alleviating suffering. In "To Repair the World", we'll read a series of short speeches by Paul Farmer, the well-known doctor/medical anthropologist and Duke alum. In "Development as Freedom", we'll consider economist Amartya Sen's argument that poverty is the result of one or more "unfreedoms".
 
 Just before Fall Break, we will enter a lively debate about the role of foreign aid in bringing about "The End of Poverty". Economist Jeff Sachs gives us an inspiring look at how we could end extreme poverty by 2025 with enough resources. Could it work? In 2006, Sachs launched the Millennium Villages Project to convince the world. Did it work? Journalist Nina Munk takes us on a critical journey to MVP sites in her book "The Idealist". Between these two bookends we will screen "Good Fortune", a documentary about the recipients of foreign aid in Kenya and the flipside of good intentions.
 
@@ -66,7 +66,7 @@ We will read several books and screen two films this semester, just about one pe
 -   ***Living in Emergency***, Mark Hopkins ([website](http://www.livinginemergency.com/Home/Index.html))
 -   ***Getting Better***, Charles Kenny ([Amazon](http://www.amazon.com/Getting-Better-Development-Succeeding---Improve-ebook/dp/B009RRV0HE/ref=sr_1_1?s=digital-text&ie=UTF8&qid=1406223548&sr=1-1&keywords=Getting+Better)/[Duke eBook](http://search.library.duke.edu/search?id=DUKE004902036))
 
-You will have the first week of the semester to read the first book on our list, "Down and Out in Paris and London". We'll discuss the book in class on Tuesday September 2 and work on an in-class assignment related to the book on Thursday September 4. We'll discuss our second book, "Beyond the Beautiful Forevers", and complete an in-class activity the following Tuesday and Thursday, respectively. This will be our format all semester. Book discussion on Tuesday, in-class activity on Thursday.
+You will have the first week of the semester to read the first book on our list, "Down and Out in Paris and London". We'll discuss the book in class on Tuesday September 2 and work on an in-class assignment related to the book on Thursday September 4. We'll discuss our second book, "Behind the Beautiful Forevers", and complete an in-class activity the following Tuesday and Thursday, respectively. This will be our format all semester. Book discussion on Tuesday, in-class activity on Thursday.
 
 Each book is on reserve at Perkins Library for overnight checkout. Two of the books are available through Duke as eBooks. The cost of the other nine on Amazon Kindle is currently just under \$100. You do not need to own a Kindle, smartphone, or tablet to read Kindle books; you can read Kindle books in your computer's browser (Cloud Reader) or in the desktop app.
 

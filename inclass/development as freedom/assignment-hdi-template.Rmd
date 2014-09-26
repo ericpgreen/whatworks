@@ -2,9 +2,7 @@
 title: "Development as Freedom In-Class Assignment"
 author: Your names here
 date: "`r format(Sys.time(), '%d %B %Y')`"
-output: 
-  pdf_document:
-    highlight: tango
+output: html_document
 ---
 
 # Setup
