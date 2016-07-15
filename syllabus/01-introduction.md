@@ -1,13 +1,13 @@
-What Works in Global Health and Development
+Finding What Works to Improve Health and End Extreme Poverty around the World
 ================================================
 
-**Duke University, Fall 2014**
+**Duke University, Fall 2016**
 
-|**Course Code:**|GLHLTH 175FS-01|
+|**Course Code:**|GLHLTH 89S|
 |:---------------|:------------|
 |**Instructor:**|Eric Green, Ph.D.|
 |**Contact:**|<eric.green@duke.edu> / 919-666-7111 (phone/sms) / @ericpgreen / Skype: epgreen|
-|**Web:**|[Facebook](https://www.google.com/url?q=https%3A%2F%2Fwww.facebook.com%2Fgroups%2F1458614514395557%2F&sa=D&sntz=1&usg=AFQjCNHxpTnN-XQOSAxJEw1780fA0WZCtQ) (gated) / [Google Drive](https://drive.google.com/folderview?id=0Bxn_jkXZ1lxudWNhcGZENUhWdTA&usp=sharing) (gated)|
-|**Classroom:**|Link 4|
-|**Time:**|TTh 4:40-5:55|
+|**Web:**|[Piazza](https://piazza.com/duke/fall2016/glhlth89s01f16/home) (gated) / [Sakai](https://sakai.duke.edu/portal/site/whatworks) (gated)|
+|**Classroom:**|Carr 106|
+|**Time:**|TTh 1:25-2:40|
 

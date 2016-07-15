@@ -2,19 +2,19 @@
 
 Date       | Class                            | Date      | Class
 | :---     | :---                             | :---      | :--- | 
-T Aug 26   | Introductions                    | Th Oct 16 | Good Fortune (Film)
-Th Aug 28  | Pro Tips                         | T Oct 21  | The Idealist
-T Sept 02  | Down and Out in Paris and London | Th Oct 23 | The Idealist
-Th Sept 04 | Down and Out in Paris and London | T Oct 28  | What Works in Development
-T Sept 09  | Behind the Beautiful Forevers    | Th Oct 30 | What Works in Development
-Th Sept 11 | Behind the Beautiful Forevers    | T Nov 04  | Poor Economics
-T Sept 16  | To Repair the World              | Th Nov 06 | Poor Economics
-Th Sept 18 | To Repair the World              | T Nov 11  | Mountains Beyond Mountains
-T Sept 23  | Development as Freedom           | Th Nov 13 | Mountains Beyond Mountains
-Th Sept 25 | Development as Freedom           | T Nov 18  | The Big Truck That Went By
-T Sept 30  | The End of Poverty               | Th Nov 20 | The Big Truck That Went By
-Th Oct 02  | The End of Poverty               | T Nov 25  | Living in Emergency (Film)
-T Oct 07   | Oral Exam                        | Th Nov 27 | Thanksgiving Break
-Th Oct 09  | Oral Exam                        | T Dec 02  | Getting Better
-T Oct 14   | Fall Break                       | Th Dec 04 | Getting Better
+T Aug 30   | Introductions                    | Th Oct 20 | The Idealist
+Th Sept 01 | Pro Tips                         | T Oct 25  | Poor Economics
+T Sept 06  | $2.00 a Day                      | Th Oct 27 | Poor Economics
+Th Sept 08 | $2.00 a Day                      | T Nov 01  | Mountains Beyond Mountains
+T Sept 13  | Portfolios of the Poor           | Th Nov 03 | Mountains Beyond Mountains
+Th Sept 15 | Portfolios of the Poor           | T Nov 08  | House on Fire
+T Sept 20  | Why Nations Fail                 | Th Nov 10 | House on Fire
+Th Sept 22 | Why Nations Fail                 | T Nov 15  | A Path Appears
+T Sept 27  | Tinderbox                        | Th Nov 17 | A Path Appears
+Th Sept 29 | Tinderbox                        | T Nov 22  | Living in Emergency (Film)
+T Oct 04   | The End of Poverty               | Th Nov 24 | Thanksgiving Break
+Th Oct 06  | The End of Poverty               | T Nov 29  | Getting Better
+T Oct 11   | Fall Break                       | Th Dec 01 | Getting Better
+Th Oct 13  | Good Fortune (Film)              | T Dec 06  | Wrap-up
+T Oct 18   | The Idealist                     | Th Dec 08 | Wrap-up
 

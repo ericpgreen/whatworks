@@ -15,4 +15,4 @@ F: 59 and below | | |
 
 ## Final Grade
 
-Your final grade will be a weighted average of your participation (30%), team discussion/activity score (30%), reading reflections (20%), and final paper (20%). If you are in between grades, and if the difference is less than or equal to 0.5, your score will round up (e.g., 97.5 rounds up to 98).
+Your final grade will be a weighted average of your participation (50%), midterm (25%), and final (25%). If you are in between grades, and if the difference is less than or equal to 0.5, your score will round up (e.g., 97.5 rounds up to 98). See this [grading template](https://docs.google.com/spreadsheet/ccc?key=0Ahn_jkXZ1lxudFNRUDlnQzFZd0k5anEzR29PSWJ6X1E&usp=sharing) for more details. Penalties for late submissions will be described with each assignment.
