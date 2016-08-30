@@ -138,7 +138,7 @@ Students will be divided into three teams of six. Each team will be responsible 
 Reading Reflections (20%)
 -------------------------
 
-Students will submit 6 reading reflections over the course of the semester. Reflections may not be submitted for books covered by the student's team. I will grade 2 of your 6 submissions. To get full credit, you must submit all 6 reflections on time. Reflections will be due Mondays at 5pm ET.
+Students will submit 4 reading reflections over the course of the semester. Reflections may not be submitted for books covered by the student's team. I will grade 2 of your 4 submissions. To get full credit, you must submit all 4 reflections on time. Reflections will be due Mondays at 5pm ET.
 
 Final Paper (20%)
 -----------------
