@@ -1,0 +1,27 @@
+name: "GLHLTH 89S"
+navbar:
+  title: "GLHLTH 89S"
+  type: inverse
+  left:
+    - text: "Home"
+      href: index.html
+    - text: "Syllabus"
+      href: syllabus.html
+    - text: "Module 1"
+      href: mod1.html
+    - text: "Module 2"
+      href: mod2.html
+    - text: "Module 3"
+      href: mod3.html
+    - text: "Module 4"
+      href: mod4.html
+output:
+  html_document:
+    theme: yeti
+    highlight: tango
+    fig_caption: true
+    toc: true
+    toc_float:
+      collapsed: false
+      smooth_scroll: false
+    css: styles.css
