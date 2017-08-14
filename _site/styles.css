@@ -1,22 +1,24 @@
-@import url('https://fonts.googleapis.com/css?family=Open+Sans');
+@import url('https://fonts.googleapis.com/css?family=Fjalla+One');
+@import url('https://fonts.googleapis.com/css?family=Pontano+Sans');
 
 
 html, body {
   
-  font-family: sans-serif;
+  font-family: 'Pontano Sans', sans-serif;
   font-size: 1.05em;
   line-height: 1.6em;    
   color: #333333;
 }
 
 h1, h2, h3, h4, h5 {
-  font-family: 'Paytone One', sans-serif;
+  font-family: 'Fjalla One', sans-serif;
 }
 
 h2, h3 {
   text-transform: lowercase;
-  font-family: 'Open Sans', sans-serif;
+  font-family: 'Fjalla One', sans-serif;
   font-style: normal;
+  color: red;
 }
 
 .figure {
@@ -45,7 +47,14 @@ blockquote {
 }
 
 
+p {
+padding-bottom: 15px;
+}
 
+p #nospace{
+margin: 0px;
+padding: 0px;
+}
 
 @media (max-width: 767px) {
   

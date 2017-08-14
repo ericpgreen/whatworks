@@ -4,14 +4,4 @@ output:
   html_document:
     toc_float: false
 ---
-<br>
-
-**Duke University, Fall 2017**
-
-**Instructor**:Eric Green, Ph.D.
-
-**Details**: T/Th, 3:05-4:20 PM
-
-<br>
-  
-Incomes are stagnant in many parts of the world, and the gap between the rich and poor has never been greater. Every year, millions of children die before their fifth birthday, mostly from preventable causes. Many more are infected with HIV, tuberculosis, or malaria, and 1 out of every 10 people on the planet live in extreme poverty. How is this still the case when, over the past few decades, the rich world has transferred approximately 2 trillion in aid to developing countries? Has it all been a waste? Money thrown down "Third word rat-holes"? Or has this money been woefully inadequate? Are there any reasons for optimism? Students will examine these and other questions by reading and discussing a selection of popular titles in global health and development. Critically, we will consider the role of the international community—and each of us as world citizens—in contributing to progress.
+![](img/cover.png)
