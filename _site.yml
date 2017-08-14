@@ -1,4 +1,5 @@
 name: "GLHLTH 89S"
+output_dir: "."
 navbar:
   title: "GLHLTH 89S"
   type: inverse
