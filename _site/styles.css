@@ -14,11 +14,18 @@ h1, h2, h3, h4, h5 {
   font-family: 'Fjalla One', sans-serif;
 }
 
-h2, h3 {
+h2 {
   text-transform: lowercase;
   font-family: 'Fjalla One', sans-serif;
   font-style: normal;
-  color: red;
+  color: #4d934b;
+}
+
+h3 {
+  text-transform: lowercase;
+  font-family: 'Fjalla One', sans-serif;
+  font-style: normal;
+  color: #8e9191;
 }
 
 .figure {
