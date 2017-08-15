@@ -45,6 +45,8 @@ We will screen two films this semester:
 
 # What You'll Do
 
+## Format
+
 In this course I'll ask you to learn how to explore data and share what you are thinking and learning through individual writing assignments and group projects. Data exploration, writing, and speaking are three fundamental skills you need to master during your time at Duke, and I want to help you get started. Here's what you can expect:
 
 In the first module, I'll teach you how to search the literature effectively, organize your writing, and access data. Follow the instructions to prepare for each session, and come to class with a laptop.
@@ -54,6 +56,26 @@ In the remaining modules, we'll discuss assigned books and readings on Tuesdays 
 Prior to each writing workshop, you will submit a draft that will be reviewed by two students who will prepare written feedback. The three of you will meet during class to review your draft and peer ideas for improvement. You will then take the feedback you receive in writing and in person and prepare a final draft for a course grade. 
 
 In preparation for the presentation workshops, you a group of 3-4 other students will meet to prepare a short presentation on an assigned topic. You'll remain with this group thoughout the semester and give a total of three presentations. You will receive feedback on your presentation style from your audience, and you will give it in turn. 
+
+## Requirements
+
+### Class Participation (30%)
+
+Your participation grade will be determined by your attendance and contributions to class activities (see [Duke's definition of a seminar](http://trinity.duke.edu/undergraduate/academic-policies/seminars)). You should be prepared to comment on every reading in case I decide to call on you in class. I will incorporate pop quizzes and other assignments if I feel there is a need to further incentivize students to keep up with the readings.
+
+### Writing Workshops (20%)
+
+You will participate in three writing workshops this semester. Prior to each workshop, you will share a draft with me and two other students, and you will provide written feedback for these students. 
+
+### Presentation Workshops (20%)
+
+Your group will prepare three 10-minute presentations this semester. After each workshop, you will provide written feedback for one other group.
+
+### Final Paper (30%)
+
+There is no final exam scheduled for finals week. Instead, you submit a final paper by 9am ET on Thursday December 14. I will share details about the structure and format of this paper.
+
+I encourage you to consult the Writing Studio when you are preparing your final. In addition to offering 1-on-1 consultations, the Writing Studio also publishes [helpful resources](http://twp.duke.edu/writing-studio/resources) that will help you to improve your drafts, such as [this collection](http://twp.duke.edu/writing-studio/resources/working-with-sources) on working with sources. Avoid plagiarism and [know when to quote (rarely) and when to paraphrase (often)](http://twp.duke.edu/uploads/media_items/quotations.original.pdf).
 
 # What You'll Need
 
@@ -73,4 +95,16 @@ All other assigned readings will be available to you via Piazza.
 
 In Module 1, you will be instructed to download and install R, RStudio, and Zotero. All are free to download and use. You'll also need to sign up for access to Google Docs and Piazza.
 
+# Policies
 
+- You are permitted 2 unexcused absences throughout the semester. Beyond that, each unexcused absence will result in your overall grade being lowered by 1-step (e.g., A+ to A). Coming late to class counts as 0.5 unexcused absences.
+
+- Officially, Duke permits students to miss work due to absence from class in four circumstances: illness; personal emergencies; religious observance; and varsity athletic participation. Please take a moment to [read](http://trinity.duke.edu/undergraduate/academic-policies/class-attendance-and-missed-work) how Duke defines each circumstance. Missed work associated with any other absence is not covered by this policy and will be considered on a case-by-case basis.
+
+- Late assignments will lose 15% of possible points initially. If you fail to turn in an assignment within 12 hours of the deadline, you will lose all possible points. I will use Google Docs version history to determine document status at submission deadlines.  
+
+- Students should abide by the [Duke Community Standard](http://studentaffairs.duke.edu/conduct/about-us/duke-community-standard) at all times. If a questionable circumstance arises, do not hesitate to seek my guidance (before is always better than after).
+
+- Your final grade will be a weighted average of each requirement. If you are in between grades, and if the difference is less than or equal to 0.5, your score will round up (e.g., 97.5 rounds up to 98). Ranges for letter grades will be set at the end of the semester, and grades may be curved. Cumulative scores of at least 90, 80, and 70 will be guaranteed at least an A-, B-, and C-, respectively.
+
+- Any student with a documented disability needing academic adjustments or accommodations should speak with me during the first two weeks of class. All discussions will remain confidential. Students with disabilities will also need to contact the Student Disability Access Office.

@@ -13,16 +13,20 @@ title: "MODULE 1: Introduction"
 
 ## Aug 29: Introduction
 
-Insert
+Welcome to Duke! We'll review the syllabus, course format, and expectations.
 
 ## Aug 31: Searching the Literature
 
-Insert
+Tutorial details TBA
 
 ## Sept 5: Getting Started with R, Part 1
 
-Insert
+Tutorial details TBA
+
+Read Chapters 1 and 4 of *Development as Freedom* (Piazza) prior to class.
 
 ## Sept 7: Getting Started with R, Part 2
 
-Insert
+Tutorial details TBA
+
+Read the Preface and Chapter 1 of *Reimaging Global Health* (Piazza) prior to class.
