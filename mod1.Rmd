@@ -1,5 +1,28 @@
 ---
-title: "Introduction"
+title: "MODULE 1: Introduction"
 ---
   
+| Date | Topic |
+|:---  |:---   |
+| Tu Aug 29 | Introduction |
+| Th Aug 31 | Searching the literature |
+| Tu Sept 5 | Getting started with R, Part 1 |
+| Th Sept 7 | Getting started with R, Part 2 |
+
+<br>
+
+## Aug 29: Introduction
+
+Insert
+
+## Aug 31: Searching the Literature
+
+Insert
+
+## Sept 5: Getting Started with R, Part 1
+
+Insert
+
+## Sept 7: Getting Started with R, Part 2
+
 Insert

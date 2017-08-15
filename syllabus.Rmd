@@ -67,10 +67,10 @@ We'll read the majority of each book listed below, so you should make sure you h
 4. ***The Idealist***, Nina Munk ([Amazon](http://www.amazon.com/Idealist-Jeffrey-Sachs-Quest-Poverty-ebook/dp/B00BVJG2LK/ref=sr_1_1?s=digital-text&ie=UTF8&qid=1406223220&sr=1-1&keywords=the+idealist)/on reserve)
 5. ***Poor Economics***, Abhijit Banerjee and Esther Duflo ([Amazon](http://www.amazon.com/Poor-Economics-Radical-Rethinking-Poverty-ebook/dp/B007CI81IQ/ref=sr_1_1?s=digital-text&ie=UTF8&qid=1406223382&sr=1-1&keywords=poor+economics)/[Duke eBook](https://search.library.duke.edu/search?id=DUKE006411427))
 
-All other assigned readings will be available to you via Sakai.
+All other assigned readings will be available to you via Piazza.
 
 ## Software
 
-In Module 1, you will be instructed to download and install R, RStudio, and Zotero. All are free to download and use.
+In Module 1, you will be instructed to download and install R, RStudio, and Zotero. All are free to download and use. You'll also need to sign up for access to Google Docs and Piazza.
 
 
