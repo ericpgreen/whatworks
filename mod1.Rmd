@@ -17,7 +17,7 @@ Welcome to Duke! We'll review the syllabus, course format, and expectations.
 
 ## Aug 31: Searching the Literature
 
-Tutorial details TBA
+We will complete [this tutorial](m1_searching.html) on searching the literature, and using a reference manager.
 
 ## Sept 5: Getting Started with R, Part 1
 

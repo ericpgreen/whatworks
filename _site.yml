@@ -26,3 +26,4 @@ output:
       collapsed: false
       smooth_scroll: true
     css: styles.css
+include: ["m1_searching.html"]
