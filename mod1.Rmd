@@ -21,12 +21,8 @@ We'll complete [this tutorial](m1_searching.html) on searching the literature an
 
 ## Sept 5: Getting Started with R, Part 1
 
-Tutorial details TBA
-
-Read Chapters 1 and 4 of *Development as Freedom* (Piazza) prior to class.
+Please read Chapters 1 and 4 of *Development as Freedom* (Piazza) prior to class. We'll begin our session with a discussion of these chapters, focusing on what we mean when we talk about "development". Then we will complete a series of [beginner tutorials on using R](m1_r1.html).
 
 ## Sept 7: Getting Started with R, Part 2
 
-Tutorial details TBA
-
-Read the Preface and Chapter 1 of *Reimaging Global Health* (Piazza) prior to class.
+Please read the Preface and Chapter 1 of *Reimaging Global Health* (Piazza) prior to class. We'll try to answer the question, "so what in the heck is global health?". Then we'll return to the world of R and learn about [exploratory data analysis](m1_r2.html)!

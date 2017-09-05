@@ -1,0 +1,9 @@
+---
+title: "R: Part 1"
+---
+
+In this session we'll learn some R basics so you can explore health and poverty data this semester. You won't master R this week, but you should learn enough to get started. If a stats class at Duke is in your future, you'll have plenty of time to sharpen your skills!
+
+Learning R is not easy, so I wrote to the folks at [DataCamp](https://www.datacamp.com) for some help. They agreed to let us access DataCamp course material for free. How cool is that? Just use the link on Piazza to register with our "what works" group.
+
+Once everyone is registered, we'll start with the "Intro to basics" chapter in the course "Introduction to R". Then we'll complete the chapters on vectors and dataframes. If we have time in class, we'll also knock out the "Orientation" chapter in the course "Working with the RStudio IDE (Part 1)".

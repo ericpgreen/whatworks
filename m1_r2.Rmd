@@ -1,0 +1,5 @@
+---
+title: "R: Part 2"
+---
+
+We'll continue our jouRney with two chapters from the DataCamp course, "Exploratory Data Analysis in R: Case Study". The first chapter will use a dataset on UN voting to teach us about data wrangling. In the second chapter, we'll learn how to plot trends over time with the ggplot2 package. Plots!
