@@ -1,0 +1,475 @@
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+
+<head>
+
+<meta charset="utf-8" />
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="generator" content="pandoc" />
+
+
+
+
+<title>Data Exploration: $2.00 a Day</title>
+
+<script src="site_libs/jquery-1.11.3/jquery.min.js"></script>
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<link href="site_libs/bootstrap-3.3.5/css/yeti.min.css" rel="stylesheet" />
+<script src="site_libs/bootstrap-3.3.5/js/bootstrap.min.js"></script>
+<script src="site_libs/bootstrap-3.3.5/shim/html5shiv.min.js"></script>
+<script src="site_libs/bootstrap-3.3.5/shim/respond.min.js"></script>
+<script src="site_libs/jqueryui-1.11.4/jquery-ui.min.js"></script>
+<link href="site_libs/tocify-1.9.1/jquery.tocify.css" rel="stylesheet" />
+<script src="site_libs/tocify-1.9.1/jquery.tocify.js"></script>
+<script src="site_libs/navigation-1.1/tabsets.js"></script>
+
+
+<style type="text/css">code{white-space: pre;}</style>
+<style type="text/css">
+div.sourceCode { overflow-x: auto; }
+table.sourceCode, tr.sourceCode, td.lineNumbers, td.sourceCode {
+  margin: 0; padding: 0; vertical-align: baseline; border: none; }
+table.sourceCode { width: 100%; line-height: 100%; background-color: #f8f8f8; }
+td.lineNumbers { text-align: right; padding-right: 4px; padding-left: 4px; color: #aaaaaa; border-right: 1px solid #aaaaaa; }
+td.sourceCode { padding-left: 5px; }
+pre, code { background-color: #f8f8f8; }
+code > span.kw { color: #204a87; font-weight: bold; } /* Keyword */
+code > span.dt { color: #204a87; } /* DataType */
+code > span.dv { color: #0000cf; } /* DecVal */
+code > span.bn { color: #0000cf; } /* BaseN */
+code > span.fl { color: #0000cf; } /* Float */
+code > span.ch { color: #4e9a06; } /* Char */
+code > span.st { color: #4e9a06; } /* String */
+code > span.co { color: #8f5902; font-style: italic; } /* Comment */
+code > span.ot { color: #8f5902; } /* Other */
+code > span.al { color: #ef2929; } /* Alert */
+code > span.fu { color: #000000; } /* Function */
+code > span.er { color: #a40000; font-weight: bold; } /* Error */
+code > span.wa { color: #8f5902; font-weight: bold; font-style: italic; } /* Warning */
+code > span.cn { color: #000000; } /* Constant */
+code > span.sc { color: #000000; } /* SpecialChar */
+code > span.vs { color: #4e9a06; } /* VerbatimString */
+code > span.ss { color: #4e9a06; } /* SpecialString */
+code > span.im { } /* Import */
+code > span.va { color: #000000; } /* Variable */
+code > span.cf { color: #204a87; font-weight: bold; } /* ControlFlow */
+code > span.op { color: #ce5c00; font-weight: bold; } /* Operator */
+code > span.pp { color: #8f5902; font-style: italic; } /* Preprocessor */
+code > span.ex { } /* Extension */
+code > span.at { color: #c4a000; } /* Attribute */
+code > span.do { color: #8f5902; font-weight: bold; font-style: italic; } /* Documentation */
+code > span.an { color: #8f5902; font-weight: bold; font-style: italic; } /* Annotation */
+code > span.cv { color: #8f5902; font-weight: bold; font-style: italic; } /* CommentVar */
+code > span.in { color: #8f5902; font-weight: bold; font-style: italic; } /* Information */
+</style>
+<style type="text/css">
+  pre:not([class]) {
+    background-color: white;
+  }
+</style>
+
+
+<style type="text/css">
+h1 {
+  font-size: 34px;
+}
+h1.title {
+  font-size: 38px;
+}
+h2 {
+  font-size: 30px;
+}
+h3 {
+  font-size: 24px;
+}
+h4 {
+  font-size: 18px;
+}
+h5 {
+  font-size: 16px;
+}
+h6 {
+  font-size: 12px;
+}
+.table th:not([align]) {
+  text-align: left;
+}
+</style>
+
+<link rel="stylesheet" href="styles.css" type="text/css" />
+
+</head>
+
+<body>
+
+<style type = "text/css">
+.main-container {
+  max-width: 940px;
+  margin-left: auto;
+  margin-right: auto;
+}
+code {
+  color: inherit;
+  background-color: rgba(0, 0, 0, 0.04);
+}
+img {
+  max-width:100%;
+  height: auto;
+}
+.tabbed-pane {
+  padding-top: 12px;
+}
+button.code-folding-btn:focus {
+  outline: none;
+}
+</style>
+
+
+<style type="text/css">
+/* padding for bootstrap navbar */
+body {
+  padding-top: 45px;
+  padding-bottom: 40px;
+}
+/* offset scroll position for anchor links (for fixed navbar)  */
+.section h1 {
+  padding-top: 50px;
+  margin-top: -50px;
+}
+
+.section h2 {
+  padding-top: 50px;
+  margin-top: -50px;
+}
+.section h3 {
+  padding-top: 50px;
+  margin-top: -50px;
+}
+.section h4 {
+  padding-top: 50px;
+  margin-top: -50px;
+}
+.section h5 {
+  padding-top: 50px;
+  margin-top: -50px;
+}
+.section h6 {
+  padding-top: 50px;
+  margin-top: -50px;
+}
+</style>
+
+<script>
+// manage active state of menu based on current page
+$(document).ready(function () {
+  // active menu anchor
+  href = window.location.pathname
+  href = href.substr(href.lastIndexOf('/') + 1)
+  if (href === "")
+    href = "index.html";
+  var menuAnchor = $('a[href="' + href + '"]');
+
+  // mark it active
+  menuAnchor.parent().addClass('active');
+
+  // if it's got a parent navbar menu mark it active as well
+  menuAnchor.closest('li.dropdown').addClass('active');
+});
+</script>
+
+
+<div class="container-fluid main-container">
+
+<!-- tabsets -->
+<script>
+$(document).ready(function () {
+  window.buildTabsets("TOC");
+});
+</script>
+
+<!-- code folding -->
+
+
+
+
+<script>
+$(document).ready(function ()  {
+
+    // move toc-ignore selectors from section div to header
+    $('div.section.toc-ignore')
+        .removeClass('toc-ignore')
+        .children('h1,h2,h3,h4,h5').addClass('toc-ignore');
+
+    // establish options
+    var options = {
+      selectors: "h1,h2,h3",
+      theme: "bootstrap3",
+      context: '.toc-content',
+      hashGenerator: function (text) {
+        return text.replace(/[.\\/?&!#<>]/g, '').replace(/\s/g, '_').toLowerCase();
+      },
+      ignoreSelector: ".toc-ignore",
+      scrollTo: 0
+    };
+    options.showAndHide = false;
+    options.smoothScroll = true;
+
+    // tocify
+    var toc = $("#TOC").tocify(options).data("toc-tocify");
+});
+</script>
+
+<style type="text/css">
+
+#TOC {
+  margin: 25px 0px 20px 0px;
+}
+@media (max-width: 768px) {
+#TOC {
+  position: relative;
+  width: 100%;
+}
+}
+
+
+.toc-content {
+  padding-left: 30px;
+  padding-right: 40px;
+}
+
+div.main-container {
+  max-width: 1200px;
+}
+
+div.tocify {
+  width: 20%;
+  max-width: 260px;
+  max-height: 85%;
+}
+
+@media (min-width: 768px) and (max-width: 991px) {
+  div.tocify {
+    width: 25%;
+  }
+}
+
+@media (max-width: 767px) {
+  div.tocify {
+    width: 100%;
+    max-width: none;
+  }
+}
+
+.tocify ul, .tocify li {
+  line-height: 20px;
+}
+
+.tocify-subheader .tocify-item {
+  font-size: 0.90em;
+  padding-left: 25px;
+  text-indent: 0;
+}
+
+.tocify .list-group-item {
+  border-radius: 0px;
+}
+
+.tocify-subheader {
+  display: inline;
+}
+.tocify-subheader .tocify-item {
+  font-size: 0.95em;
+}
+
+</style>
+
+<!-- setup 3col/9col grid for toc_float and main content  -->
+<div class="row-fluid">
+<div class="col-xs-12 col-sm-4 col-md-3">
+<div id="TOC" class="tocify">
+</div>
+</div>
+
+<div class="toc-content col-xs-12 col-sm-8 col-md-9">
+
+
+
+
+<div class="navbar navbar-inverse  navbar-fixed-top" role="navigation">
+  <div class="container">
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar">
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <a class="navbar-brand" href="index.html">GLHLTH 89S</a>
+    </div>
+    <div id="navbar" class="navbar-collapse collapse">
+      <ul class="nav navbar-nav">
+        <li>
+  <a href="index.html">Home</a>
+</li>
+<li>
+  <a href="syllabus.html">Syllabus</a>
+</li>
+<li>
+  <a href="mod1.html">Module 1</a>
+</li>
+<li>
+  <a href="mod2.html">Module 2</a>
+</li>
+<li>
+  <a href="mod3.html">Module 3</a>
+</li>
+<li>
+  <a href="mod4.html">Module 4</a>
+</li>
+      </ul>
+      <ul class="nav navbar-nav navbar-right">
+        
+      </ul>
+    </div><!--/.nav-collapse -->
+  </div><!--/.container -->
+</div><!--/.navbar -->
+
+<div class="fluid-row" id="header">
+
+
+
+<h1 class="title toc-ignore">Data Exploration: $2.00 a Day</h1>
+
+</div>
+
+
+<p><br></p>
+<div id="introduction" class="section level2">
+<h2>Introduction</h2>
+<p>This activity will introduce you to data on poverty in the U.S. We’ll begin with an overview of how poverty is measured in the U.S. and explore census data on poverty. The objectives of this exercise are to:</p>
+<ul>
+<li>state how poverty is defined</li>
+<li>discover poverty trends in your home state</li>
+</ul>
+<p>Students will work in pairs to complete this assignment. One person should keep this instructions page open while the other navigates to Duke’s RStudio server. Record your answers on the hardcopy of <a href="https://drive.google.com/open?id=1HyW7cUpRhGjjsDNm_OAeufZfwFiUbryXPucML05ApzA">this worksheet</a> provided in class.</p>
+</div>
+<div id="how-is-poverty-defined-and-measured" class="section level2">
+<h2>How is poverty defined and measured?</h2>
+<p><br></p>
+<p><img src="https://www.census.gov/content/census/en/library/visualizations/2014/demo/poverty_measure-history/jcr:content/map.detailitem.800.high.png/1449892859257.png" width="100%" /></p>
+<ol style="list-style-type: decimal">
+<li><p>The U.S. Census Bureau (BOC) produces official estimates of poverty in America. The most famous data product of the BOC is the decennial population and housing census of the U.S., but the Bureau—part of the Department of Commerce—also conducts more than 130 annual surveys related to the population and economy. The BOC’s two main sources of data on poverty are the Current Population Survey Annual Social and Economic Supplement (CPS ASEC) and the American Community Survey. Go <a href="https://www.census.gov/newsroom/blogs/random-samplings/2017/09/how_the_census_burea.html">here</a> to read about these two surveys.</p></li>
+<li><p>The BOC produces an official and a supplemental estimate of poverty. Go <a href="https://www.census.gov/newsroom/blogs/random-samplings/2017/09/what_is_the_suppleme.html">here</a> to read about the differences in each measure.</p></li>
+<li><p>How is the federal poverty line (<a href="https://www.census.gov/library/publications/2017/demo/p60-259.html">threshold</a>) determined?</p></li>
+<li><p>As they do every September, the BOC released new data and estimates from the CPS ASEC and ACS this week. You can now download and explore all of the 2016 data and data products. This is a demographer’s favorite week of the year by far. Check out the press releases for the new <a href="https://www.census.gov/newsroom/press-releases/2017/acs-single-year.html">ACS</a> and <a href="https://www.census.gov/newsroom/press-releases/2017/income-povery.html">CPS ASEC</a>.</p></li>
+</ol>
+</div>
+<div id="exploring-poverty-data" class="section level2">
+<h2>Exploring poverty data</h2>
+<ol start="5" style="list-style-type: decimal">
+<li><p>The BOC makes it easy to get started exploring data about income and poverty in the U.S. Just go to <a href="https://data.census.gov">data.census.gov</a> and search for data on “poverty”.</p></li>
+<li><p>Platforms like this are nice for quick stat grabs, but often we need to work with the underlying data. Let’s give it a try in R. Start by navigating to <a href="https://vm-manage.oit.duke.edu/containers" class="uri">https://vm-manage.oit.duke.edu/containers</a> in your browser. You should be prompted to login with your NetID. Click on the link to “RStudio” to begin your R session.</p></li>
+<li><p>Click on “File” and choose “New File” and “R Notebook”. Change the title to “$2.00 a Day”.</p></li>
+<li><p>Click “Preview”. You will be prompted to save the file. Make a new folder for this class and name the file “2dollars”. When you save, your browser might prompt you to allow pop-ups from RStudio.</p></li>
+</ol>
+<div class="figure">
+<img src="IMG/save.png" />
+
+</div>
+<ol start="9" style="list-style-type: decimal">
+<li><p>Delete everything from line 6 down.</p></li>
+<li><p>We’ll a few packages that will make exploration and mapping a breeze: <a href="https://www.tidyverse.org/"><code>tidyverse</code></a> and <a href="https://github.com/walkerke/tidycensus"><code>tidycensus</code></a>. To install these packages, copy and run the following in your console (not the new file you created):</p></li>
+</ol>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">install.packages</span>(<span class="st">&quot;tidyverse&quot;</span>, <span class="dt">dependencies=</span><span class="ot">TRUE</span>)
+<span class="kw">install.packages</span>(<span class="st">&quot;purr&quot;</span>)
+<span class="kw">install.packages</span>(<span class="st">&quot;tidycensus&quot;</span>, <span class="dt">dependencies=</span><span class="ot">TRUE</span>)
+<span class="kw">install.packages</span>(<span class="st">&quot;leaflet&quot;</span>)
+<span class="kw">install.packages</span>(<span class="st">&quot;stringr&quot;</span>)
+<span class="kw">install.packages</span>(<span class="st">&quot;sf&quot;</span>)</code></pre></div>
+<ol start="11" style="list-style-type: decimal">
+<li>Wait for the code finish running. Then use the insert button to insert a new R code chunk.</li>
+</ol>
+<div class="figure">
+<img src="IMG/code.png" />
+
+</div>
+<ol start="12" style="list-style-type: decimal">
+<li>Next, load the packages (libraries) by typing the following inside your new chunk and hitting the play button.</li>
+</ol>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># load packages</span>
+  <span class="kw">library</span>(tidyverse)
+  <span class="kw">library</span>(tidycensus)
+  <span class="kw">library</span>(leaflet)
+  <span class="kw">library</span>(stringr)
+  <span class="kw">library</span>(sf)</code></pre></div>
+<ol start="13" style="list-style-type: decimal">
+<li>Register for a BOC API key <a href="http://api.census.gov/data/key_signup.html">here</a>.</li>
+</ol>
+<div class="figure">
+<img src="IMG/code.png" />
+
+</div>
+<ol start="14" style="list-style-type: decimal">
+<li>Check your email for the key. Copy the key and run the following code in your console (replacing “YOUR_KEY_HERE”)</li>
+</ol>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">  <span class="kw">census_api_key</span>(<span class="st">&quot;YOUR_KEY_HERE&quot;</span>, <span class="dt">install=</span><span class="ot">TRUE</span>)</code></pre></div>
+<ol start="15" style="list-style-type: decimal">
+<li>Create another new R chunk and paste in the following code to get the data on poverty in any state you choose.</li>
+</ol>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">  pop &lt;-<span class="st"> </span><span class="kw">get_acs</span>(<span class="dt">geography =</span> <span class="st">&quot;county&quot;</span>, 
+                 <span class="dt">variables =</span> <span class="st">&quot;B01003_001&quot;</span>, 
+                 <span class="dt">state =</span> <span class="st">&quot;NC&quot;</span>,
+                 <span class="dt">geometry =</span> <span class="ot">TRUE</span>) 
+  
+  pop</code></pre></div>
+<p>Just change the variable code (<code>B17001_001</code>) to explore a different variable in the ACS. Go <a href="https://www.census.gov/programs-surveys/acs/guidance/subjects.html">here</a> to see the options.</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">pal &lt;-<span class="st"> </span><span class="kw">colorNumeric</span>(<span class="dt">palette =</span> <span class="st">&quot;viridis&quot;</span>, <span class="dt">domain =</span> pop<span class="op">$</span>estimate)
+
+pov <span class="op">%&gt;%</span>
+<span class="st">    </span><span class="kw">st_transform</span>(<span class="dt">crs =</span> <span class="st">&quot;+init=epsg:4326&quot;</span>) <span class="op">%&gt;%</span>
+<span class="st">    </span><span class="kw">leaflet</span>(<span class="dt">width =</span> <span class="st">&quot;100%&quot;</span>) <span class="op">%&gt;%</span>
+<span class="st">    </span><span class="kw">addProviderTiles</span>(<span class="dt">provider =</span> <span class="st">&quot;CartoDB.Positron&quot;</span>) <span class="op">%&gt;%</span>
+<span class="st">    </span><span class="kw">addPolygons</span>(<span class="dt">popup =</span> <span class="op">~</span><span class="st"> </span><span class="kw">str_extract</span>(NAME, <span class="st">&quot;^([^,]*)&quot;</span>),
+                <span class="dt">stroke =</span> <span class="ot">FALSE</span>,
+                <span class="dt">smoothFactor =</span> <span class="dv">0</span>,
+                <span class="dt">fillOpacity =</span> <span class="fl">0.7</span>,
+                <span class="dt">color =</span> <span class="op">~</span><span class="st"> </span><span class="kw">pal</span>(estimate)) <span class="op">%&gt;%</span>
+<span class="st">    </span><span class="kw">addLegend</span>(<span class="st">&quot;bottomright&quot;</span>, 
+              <span class="dt">pal =</span> pal, 
+              <span class="dt">values =</span> <span class="op">~</span><span class="st"> </span>estimate,
+              <span class="dt">title =</span> <span class="st">&quot;County Populations&quot;</span>,
+              <span class="dt">opacity =</span> <span class="dv">1</span>)</code></pre></div>
+</div>
+
+
+
+</div>
+</div>
+
+</div>
+
+<script>
+
+// add bootstrap table styles to pandoc tables
+function bootstrapStylePandocTables() {
+  $('tr.header').parent('thead').parent('table').addClass('table table-condensed');
+}
+$(document).ready(function () {
+  bootstrapStylePandocTables();
+});
+
+
+</script>
+
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+  (function () {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    script.src  = "https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML";
+    document.getElementsByTagName("head")[0].appendChild(script);
+  })();
+</script>
+
+</body>
+</html>

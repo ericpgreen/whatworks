@@ -1,0 +1,114 @@
+---
+title: "Data Exploration: $2.00 a Day"
+---
+<br>
+
+## Introduction
+
+This activity will introduce you to data on poverty in the U.S. We'll begin with an overview of how poverty is measured in the U.S. and explore census data on poverty. The objectives of this exercise are to:
+
+* state how poverty is defined
+* discover poverty trends in your home state
+
+Students will work in pairs to complete this assignment. One person should keep this instructions page open while the other navigates to Duke's RStudio server. Record your answers on the hardcopy of [this worksheet](https://drive.google.com/open?id=1HyW7cUpRhGjjsDNm_OAeufZfwFiUbryXPucML05ApzA) provided in class.
+
+## How is poverty defined and measured?
+
+<br>
+
+```{r, out.width = "100%", echo=FALSE}
+knitr::include_graphics("https://www.census.gov/content/census/en/library/visualizations/2014/demo/poverty_measure-history/jcr:content/map.detailitem.800.high.png/1449892859257.png")
+```
+
+1. The U.S. Census Bureau (BOC) produces official estimates of poverty in America. The most famous data product of the BOC is the decennial population and housing census of the U.S., but the Bureau—part of the Department of Commerce—also conducts more than 130 annual surveys related to the population and economy. The BOC's two main sources of data on poverty are the Current Population Survey Annual Social and Economic Supplement (CPS ASEC) and the American Community Survey. Go [here](https://www.census.gov/newsroom/blogs/random-samplings/2017/09/how_the_census_burea.html) to read about these two surveys.
+
+2. The BOC produces an official and a supplemental estimate of poverty. Go [here](https://www.census.gov/newsroom/blogs/random-samplings/2017/09/what_is_the_suppleme.html) to read about the differences in each measure.
+
+3. How is the federal poverty line ([threshold](https://www.census.gov/library/publications/2017/demo/p60-259.html)) determined?
+
+4. As they do every September, the BOC released new data and estimates from the CPS ASEC and ACS this week. You can now download and explore all of the 2016 data and data products. This is a demographer's favorite week of the year by far. Check out the press releases for the new [ACS](https://www.census.gov/newsroom/press-releases/2017/acs-single-year.html) and [CPS ASEC](https://www.census.gov/newsroom/press-releases/2017/income-povery.html).  
+
+## Exploring poverty data
+
+5. The BOC makes it easy to get started exploring data about income and poverty in the U.S. Just go to [data.census.gov](https://data.census.gov) and search for data on "poverty". 
+
+6. Platforms like this are nice for quick stat grabs, but often we need to work with the underlying data. Let's give it a try in R. Start by navigating to [https://vm-manage.oit.duke.edu/containers](https://vm-manage.oit.duke.edu/containers) in your browser. You should be prompted to login with your NetID. Click on the link to "RStudio" to begin your R session. 
+
+7. Click on "File" and choose "New File" and "R Notebook". Change the title to "$2.00 a Day".
+
+8. Click "Preview". You will be prompted to save the file. Make a new folder for this class and name the file "2dollars". When you save, your browser might prompt you to allow pop-ups from RStudio.
+
+![](img/save.png)
+
+9. Delete everything from line 6 down. 
+
+10. We'll a few packages that will make exploration and mapping a breeze: [`tidyverse`](https://www.tidyverse.org/) and [`tidycensus`](https://github.com/walkerke/tidycensus). To install these packages, copy and run the following in your console (not the new file you created): 
+
+```{r eval=FALSE}
+install.packages("tidyverse", dependencies=TRUE)
+install.packages("purr")
+install.packages("tidycensus", dependencies=TRUE)
+install.packages("leaflet")
+install.packages("stringr")
+install.packages("sf")
+```
+
+11. Wait for the code finish running. Then use the insert button to insert a new R code chunk.
+
+![](img/code.png)
+
+12. Next, load the packages (libraries) by typing the following inside your new chunk and hitting the play button.
+
+```{r eval=FALSE}
+# load packages
+  library(tidyverse)
+  library(tidycensus)
+  library(leaflet)
+  library(stringr)
+  library(sf)
+```
+
+13. Register for a BOC API key [here](http://api.census.gov/data/key_signup.html). 
+
+![](img/code.png)
+
+14. Check your email for the key. Copy the key and run the following code in your console (replacing "YOUR_KEY_HERE")
+
+```{r eval=FALSE}
+  census_api_key("YOUR_KEY_HERE", install=TRUE)
+```
+
+15. Create another new R chunk and paste in the following code to get the data on poverty in any state you choose.
+
+```{r eval=FALSE}
+  pop <- get_acs(geography = "county", 
+                 variables = "B01003_001", 
+                 state = "NC",
+                 geometry = TRUE) 
+  
+  pop
+```
+
+Just change the variable code (`B17001_001`) to explore a different variable in the ACS. Go [here](https://www.census.gov/programs-surveys/acs/guidance/subjects.html) to see the options.
+
+
+```{r eval=FALSE}
+pal <- colorNumeric(palette = "viridis", domain = pop$estimate)
+
+pov %>%
+    st_transform(crs = "+init=epsg:4326") %>%
+    leaflet(width = "100%") %>%
+    addProviderTiles(provider = "CartoDB.Positron") %>%
+    addPolygons(popup = ~ str_extract(NAME, "^([^,]*)"),
+                stroke = FALSE,
+                smoothFactor = 0,
+                fillOpacity = 0.7,
+                color = ~ pal(estimate)) %>%
+    addLegend("bottomright", 
+              pal = pal, 
+              values = ~ estimate,
+              title = "County Populations",
+              opacity = 1)
+```
+
+
