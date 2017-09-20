@@ -46,7 +46,7 @@ knitr::include_graphics("https://www.census.gov/content/census/en/library/visual
 
 ```{r eval=FALSE}
 install.packages("tidyverse", dependencies=TRUE)
-install.packages("purr")
+install.packages("purrr")
 install.packages("tidycensus", dependencies=TRUE)
 install.packages("leaflet")
 install.packages("stringr")
@@ -78,7 +78,7 @@ install.packages("sf")
   census_api_key("YOUR_KEY_HERE", install=TRUE)
 ```
 
-15. Create another new R chunk and paste in the following code to get the data on poverty in any state you choose.
+15. Create another new R chunk and paste in the following code to get the data on poverty in any state you choose. We'll follow [this example from Julia Silge](https://juliasilge.com/blog/using-tidycensus/).
 
 ```{r eval=FALSE}
   pop <- get_acs(geography = "county", 

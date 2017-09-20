@@ -381,7 +381,7 @@ div.tocify {
 <li><p>We’ll a few packages that will make exploration and mapping a breeze: <a href="https://www.tidyverse.org/"><code>tidyverse</code></a> and <a href="https://github.com/walkerke/tidycensus"><code>tidycensus</code></a>. To install these packages, copy and run the following in your console (not the new file you created):</p></li>
 </ol>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">install.packages</span>(<span class="st">&quot;tidyverse&quot;</span>, <span class="dt">dependencies=</span><span class="ot">TRUE</span>)
-<span class="kw">install.packages</span>(<span class="st">&quot;purr&quot;</span>)
+<span class="kw">install.packages</span>(<span class="st">&quot;purrr&quot;</span>)
 <span class="kw">install.packages</span>(<span class="st">&quot;tidycensus&quot;</span>, <span class="dt">dependencies=</span><span class="ot">TRUE</span>)
 <span class="kw">install.packages</span>(<span class="st">&quot;leaflet&quot;</span>)
 <span class="kw">install.packages</span>(<span class="st">&quot;stringr&quot;</span>)
@@ -414,7 +414,7 @@ div.tocify {
 </ol>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">  <span class="kw">census_api_key</span>(<span class="st">&quot;YOUR_KEY_HERE&quot;</span>, <span class="dt">install=</span><span class="ot">TRUE</span>)</code></pre></div>
 <ol start="15" style="list-style-type: decimal">
-<li>Create another new R chunk and paste in the following code to get the data on poverty in any state you choose.</li>
+<li>Create another new R chunk and paste in the following code to get the data on poverty in any state you choose. We’ll follow <a href="https://juliasilge.com/blog/using-tidycensus/">this example from Julia Silge</a>.</li>
 </ol>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">  pop &lt;-<span class="st"> </span><span class="kw">get_acs</span>(<span class="dt">geography =</span> <span class="st">&quot;county&quot;</span>, 
                  <span class="dt">variables =</span> <span class="st">&quot;B01003_001&quot;</span>, 

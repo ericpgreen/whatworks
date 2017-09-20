@@ -1,0 +1,551 @@
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+
+<head>
+
+<meta charset="utf-8" />
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="generator" content="pandoc" />
+
+
+
+
+<title>Data Exploration: Portfolios of the Poor</title>
+
+<script src="site_libs/jquery-1.11.3/jquery.min.js"></script>
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<link href="site_libs/bootstrap-3.3.5/css/yeti.min.css" rel="stylesheet" />
+<script src="site_libs/bootstrap-3.3.5/js/bootstrap.min.js"></script>
+<script src="site_libs/bootstrap-3.3.5/shim/html5shiv.min.js"></script>
+<script src="site_libs/bootstrap-3.3.5/shim/respond.min.js"></script>
+<script src="site_libs/jqueryui-1.11.4/jquery-ui.min.js"></script>
+<link href="site_libs/tocify-1.9.1/jquery.tocify.css" rel="stylesheet" />
+<script src="site_libs/tocify-1.9.1/jquery.tocify.js"></script>
+<script src="site_libs/navigation-1.1/tabsets.js"></script>
+
+
+<style type="text/css">code{white-space: pre;}</style>
+<style type="text/css">
+div.sourceCode { overflow-x: auto; }
+table.sourceCode, tr.sourceCode, td.lineNumbers, td.sourceCode {
+  margin: 0; padding: 0; vertical-align: baseline; border: none; }
+table.sourceCode { width: 100%; line-height: 100%; background-color: #f8f8f8; }
+td.lineNumbers { text-align: right; padding-right: 4px; padding-left: 4px; color: #aaaaaa; border-right: 1px solid #aaaaaa; }
+td.sourceCode { padding-left: 5px; }
+pre, code { background-color: #f8f8f8; }
+code > span.kw { color: #204a87; font-weight: bold; } /* Keyword */
+code > span.dt { color: #204a87; } /* DataType */
+code > span.dv { color: #0000cf; } /* DecVal */
+code > span.bn { color: #0000cf; } /* BaseN */
+code > span.fl { color: #0000cf; } /* Float */
+code > span.ch { color: #4e9a06; } /* Char */
+code > span.st { color: #4e9a06; } /* String */
+code > span.co { color: #8f5902; font-style: italic; } /* Comment */
+code > span.ot { color: #8f5902; } /* Other */
+code > span.al { color: #ef2929; } /* Alert */
+code > span.fu { color: #000000; } /* Function */
+code > span.er { color: #a40000; font-weight: bold; } /* Error */
+code > span.wa { color: #8f5902; font-weight: bold; font-style: italic; } /* Warning */
+code > span.cn { color: #000000; } /* Constant */
+code > span.sc { color: #000000; } /* SpecialChar */
+code > span.vs { color: #4e9a06; } /* VerbatimString */
+code > span.ss { color: #4e9a06; } /* SpecialString */
+code > span.im { } /* Import */
+code > span.va { color: #000000; } /* Variable */
+code > span.cf { color: #204a87; font-weight: bold; } /* ControlFlow */
+code > span.op { color: #ce5c00; font-weight: bold; } /* Operator */
+code > span.pp { color: #8f5902; font-style: italic; } /* Preprocessor */
+code > span.ex { } /* Extension */
+code > span.at { color: #c4a000; } /* Attribute */
+code > span.do { color: #8f5902; font-weight: bold; font-style: italic; } /* Documentation */
+code > span.an { color: #8f5902; font-weight: bold; font-style: italic; } /* Annotation */
+code > span.cv { color: #8f5902; font-weight: bold; font-style: italic; } /* CommentVar */
+code > span.in { color: #8f5902; font-weight: bold; font-style: italic; } /* Information */
+</style>
+<style type="text/css">
+  pre:not([class]) {
+    background-color: white;
+  }
+</style>
+
+
+<style type="text/css">
+h1 {
+  font-size: 34px;
+}
+h1.title {
+  font-size: 38px;
+}
+h2 {
+  font-size: 30px;
+}
+h3 {
+  font-size: 24px;
+}
+h4 {
+  font-size: 18px;
+}
+h5 {
+  font-size: 16px;
+}
+h6 {
+  font-size: 12px;
+}
+.table th:not([align]) {
+  text-align: left;
+}
+</style>
+
+<link rel="stylesheet" href="styles.css" type="text/css" />
+
+</head>
+
+<body>
+
+<style type = "text/css">
+.main-container {
+  max-width: 940px;
+  margin-left: auto;
+  margin-right: auto;
+}
+code {
+  color: inherit;
+  background-color: rgba(0, 0, 0, 0.04);
+}
+img {
+  max-width:100%;
+  height: auto;
+}
+.tabbed-pane {
+  padding-top: 12px;
+}
+button.code-folding-btn:focus {
+  outline: none;
+}
+</style>
+
+
+<style type="text/css">
+/* padding for bootstrap navbar */
+body {
+  padding-top: 45px;
+  padding-bottom: 40px;
+}
+/* offset scroll position for anchor links (for fixed navbar)  */
+.section h1 {
+  padding-top: 50px;
+  margin-top: -50px;
+}
+
+.section h2 {
+  padding-top: 50px;
+  margin-top: -50px;
+}
+.section h3 {
+  padding-top: 50px;
+  margin-top: -50px;
+}
+.section h4 {
+  padding-top: 50px;
+  margin-top: -50px;
+}
+.section h5 {
+  padding-top: 50px;
+  margin-top: -50px;
+}
+.section h6 {
+  padding-top: 50px;
+  margin-top: -50px;
+}
+</style>
+
+<script>
+// manage active state of menu based on current page
+$(document).ready(function () {
+  // active menu anchor
+  href = window.location.pathname
+  href = href.substr(href.lastIndexOf('/') + 1)
+  if (href === "")
+    href = "index.html";
+  var menuAnchor = $('a[href="' + href + '"]');
+
+  // mark it active
+  menuAnchor.parent().addClass('active');
+
+  // if it's got a parent navbar menu mark it active as well
+  menuAnchor.closest('li.dropdown').addClass('active');
+});
+</script>
+
+
+<div class="container-fluid main-container">
+
+<!-- tabsets -->
+<script>
+$(document).ready(function () {
+  window.buildTabsets("TOC");
+});
+</script>
+
+<!-- code folding -->
+
+
+
+
+<script>
+$(document).ready(function ()  {
+
+    // move toc-ignore selectors from section div to header
+    $('div.section.toc-ignore')
+        .removeClass('toc-ignore')
+        .children('h1,h2,h3,h4,h5').addClass('toc-ignore');
+
+    // establish options
+    var options = {
+      selectors: "h1,h2,h3",
+      theme: "bootstrap3",
+      context: '.toc-content',
+      hashGenerator: function (text) {
+        return text.replace(/[.\\/?&!#<>]/g, '').replace(/\s/g, '_').toLowerCase();
+      },
+      ignoreSelector: ".toc-ignore",
+      scrollTo: 0
+    };
+    options.showAndHide = false;
+    options.smoothScroll = true;
+
+    // tocify
+    var toc = $("#TOC").tocify(options).data("toc-tocify");
+});
+</script>
+
+<style type="text/css">
+
+#TOC {
+  margin: 25px 0px 20px 0px;
+}
+@media (max-width: 768px) {
+#TOC {
+  position: relative;
+  width: 100%;
+}
+}
+
+
+.toc-content {
+  padding-left: 30px;
+  padding-right: 40px;
+}
+
+div.main-container {
+  max-width: 1200px;
+}
+
+div.tocify {
+  width: 20%;
+  max-width: 260px;
+  max-height: 85%;
+}
+
+@media (min-width: 768px) and (max-width: 991px) {
+  div.tocify {
+    width: 25%;
+  }
+}
+
+@media (max-width: 767px) {
+  div.tocify {
+    width: 100%;
+    max-width: none;
+  }
+}
+
+.tocify ul, .tocify li {
+  line-height: 20px;
+}
+
+.tocify-subheader .tocify-item {
+  font-size: 0.90em;
+  padding-left: 25px;
+  text-indent: 0;
+}
+
+.tocify .list-group-item {
+  border-radius: 0px;
+}
+
+.tocify-subheader {
+  display: inline;
+}
+.tocify-subheader .tocify-item {
+  font-size: 0.95em;
+}
+
+</style>
+
+<!-- setup 3col/9col grid for toc_float and main content  -->
+<div class="row-fluid">
+<div class="col-xs-12 col-sm-4 col-md-3">
+<div id="TOC" class="tocify">
+</div>
+</div>
+
+<div class="toc-content col-xs-12 col-sm-8 col-md-9">
+
+
+
+
+<div class="navbar navbar-inverse  navbar-fixed-top" role="navigation">
+  <div class="container">
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar">
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <a class="navbar-brand" href="index.html">GLHLTH 89S</a>
+    </div>
+    <div id="navbar" class="navbar-collapse collapse">
+      <ul class="nav navbar-nav">
+        <li>
+  <a href="index.html">Home</a>
+</li>
+<li>
+  <a href="syllabus.html">Syllabus</a>
+</li>
+<li>
+  <a href="mod1.html">Module 1</a>
+</li>
+<li>
+  <a href="mod2.html">Module 2</a>
+</li>
+<li>
+  <a href="mod3.html">Module 3</a>
+</li>
+<li>
+  <a href="mod4.html">Module 4</a>
+</li>
+      </ul>
+      <ul class="nav navbar-nav navbar-right">
+        
+      </ul>
+    </div><!--/.nav-collapse -->
+  </div><!--/.container -->
+</div><!--/.navbar -->
+
+<div class="fluid-row" id="header">
+
+
+
+<h1 class="title toc-ignore">Data Exploration: Portfolios of the Poor</h1>
+
+</div>
+
+
+<p><br></p>
+<div id="introduction" class="section level2">
+<h2>Introduction</h2>
+<p>In this activity, you and a partner will explore microdata from the <a href="https://www.datafirst.uct.ac.za/dataportal/index.php/catalog/602">2014-15 Zambian Financial Diaries Project</a>. The objectives of this exercise are to:</p>
+<ul>
+<li>discover how data are collected using the financial diaries method</li>
+<li>use R to explore data</li>
+<li>interpret basic output</li>
+<li>analyze trends in the financial lives of the poor</li>
+</ul>
+</div>
+<div id="setup" class="section level2">
+<h2>Setup</h2>
+<ol style="list-style-type: decimal">
+<li><p>One student should open <a href="https://www.datafirst.uct.ac.za/dataportal/index.php/catalog/602">this link</a> to the data catalog while the other logs into <a href="https://vm-manage.oit.duke.edu/containers" class="uri">https://vm-manage.oit.duke.edu/containers</a>. After entering your NetID, click on the link to “RStudio” to begin your R session.</p></li>
+<li><p>Click on “File” and choose “New File” and “R Notebook”. Change the title to “Portfolios of the Poor”.</p></li>
+<li><p>Click “Preview”. You will be prompted to save the file. Make a new folder for this class and name the file “portfolios”. When you save, your browser might prompt you to allow pop-ups from RStudio.</p></li>
+</ol>
+<div class="figure">
+<img src="IMG/pp_save.png" />
+
+</div>
+<ol start="4" style="list-style-type: decimal">
+<li>Delete everything from line 6 down.</li>
+</ol>
+<p><br></p>
+</div>
+<div id="the-data" class="section level2">
+<h2>The Data</h2>
+<ol start="5" style="list-style-type: decimal">
+<li>Now we need to get the data. Use the insert button to insert a new R code chunk.</li>
+</ol>
+<div class="figure">
+<img src="IMG/chunk.png" />
+
+</div>
+<ol start="6" style="list-style-type: decimal">
+<li>Then copy and paste in the following lines to download and load the data files.</li>
+</ol>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">  <span class="kw">options</span>(<span class="dt">scipen=</span><span class="dv">999</span>)
+<span class="co"># roster data</span>
+  <span class="kw">download.file</span>(<span class="st">&quot;https://www.dropbox.com/s/d6jmzglw1hwt68c/roster.RData?dl=1&quot;</span>,
+                <span class="st">&quot;roster.rData&quot;</span>)
+  <span class="kw">load</span>(<span class="st">&quot;roster.rData&quot;</span>)
+<span class="co"># panel data</span>
+  <span class="kw">download.file</span>(<span class="st">&quot;https://www.dropbox.com/s/6ab2nyuotsabgfj/panel.RData?dl=1&quot;</span>,
+                <span class="st">&quot;panel.rData&quot;</span>)
+  <span class="kw">load</span>(<span class="st">&quot;panel.rData&quot;</span>)
+<span class="co"># events data</span>
+  <span class="kw">download.file</span>(<span class="st">&quot;https://www.dropbox.com/s/kkn1hola3uock7j/events.RData?dl=1&quot;</span>,
+                <span class="st">&quot;events.rData&quot;</span>)
+  <span class="kw">load</span>(<span class="st">&quot;events.rData&quot;</span>)
+<span class="co"># transactions data</span>
+  <span class="kw">download.file</span>(<span class="st">&quot;https://www.dropbox.com/s/6axdbi2h7s3kgto/trans.RData?dl=1&quot;</span>,
+                <span class="st">&quot;trans.rData&quot;</span>)
+  <span class="kw">load</span>(<span class="st">&quot;trans.rData&quot;</span>)
+<span class="co"># cross section data</span>
+  <span class="kw">download.file</span>(<span class="st">&quot;https://www.dropbox.com/s/ckv4cgouu5x2yi6/xsection.RData?dl=1&quot;</span>,
+                <span class="st">&quot;xsection.rData&quot;</span>)
+  <span class="kw">load</span>(<span class="st">&quot;xsection.rData&quot;</span>)</code></pre></div>
+<p>If successful, you will see five dataframes in the Environment tab. Check out the “Data Description” section of the data catalog entry (not in RStudio) and the <a href="https://www.datafirst.uct.ac.za/dataportal/index.php/catalog/602/download/8847">User’s Guide</a> to understand each data source.</p>
+<div class="figure">
+<img src="IMG/pp_env.png" />
+
+</div>
+<ol start="7" style="list-style-type: decimal">
+<li>Read the User’s Guide to understand key details of the study design.</li>
+</ol>
+<p><br></p>
+</div>
+<div id="roster" class="section level2">
+<h2>Roster</h2>
+<ol start="8" style="list-style-type: decimal">
+<li><p>Click on <code>roster</code> data frame in the Environment. To make sense of the 33 variables in this data frame, find the correct <a href="https://www.datafirst.uct.ac.za/dataportal/index.php/catalog/602/data_dictionary">data dictionary in the data catalog</a> and review the <a href="https://www.datafirst.uct.ac.za/dataportal/index.php/catalog/602/related_materials">enrollment questionnaire</a>.</p></li>
+<li><p>Make a histogram of the age of people enrolled in the study. Remember to paste this code <em>inside</em> of a R code chunk.</p></li>
+</ol>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">  <span class="kw">library</span>(ggplot2)
+  <span class="kw">ggplot</span>(roster, <span class="kw">aes</span>(roster_age)) <span class="op">+</span>
+<span class="st">    </span><span class="kw">geom_histogram</span>() <span class="op">+</span>
+<span class="st">    </span><span class="kw">theme_minimal</span>() <span class="op">+</span>
+<span class="st">    </span><span class="kw">labs</span>(<span class="dt">title =</span> <span class="st">&quot;Mean age of enrolled study participants at baseline&quot;</span>, 
+         <span class="dt">subtitle =</span> <span class="st">&quot;Zambian Financial Diaries Project&quot;</span>) <span class="op">+</span>
+<span class="st">    </span><span class="kw">xlab</span>(<span class="st">&quot;Age&quot;</span>) <span class="op">+</span>
+<span class="st">    </span><span class="kw">geom_vline</span>(<span class="dt">xintercept=</span><span class="kw">mean</span>(roster<span class="op">$</span>roster_age),
+               <span class="dt">linetype=</span><span class="st">&quot;dotted&quot;</span>,
+               <span class="dt">color=</span><span class="st">&quot;red&quot;</span>) <span class="op">+</span>
+<span class="st">    </span><span class="kw">annotate</span>(<span class="st">&quot;text&quot;</span>,
+             <span class="dt">x=</span><span class="kw">mean</span>(roster<span class="op">$</span>roster_age), <span class="dt">y=</span><span class="dv">30</span>,
+             <span class="dt">label=</span><span class="kw">paste0</span>(<span class="st">&quot;Mean age = &quot;</span>, <span class="kw">round</span>(<span class="kw">mean</span>(roster<span class="op">$</span>roster_age), <span class="dv">1</span>)),
+             <span class="dt">hjust =</span> <span class="dv">0</span>)</code></pre></div>
+<ol start="10" style="list-style-type: decimal">
+<li>What percentage of respondents said they used a bank in the past 6 months?</li>
+</ol>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># counts</span>
+  <span class="kw">table</span>(roster<span class="op">$</span>roster_finserv_<span class="dv">1</span>)
+<span class="co"># proportions</span>
+  <span class="kw">table</span>(roster<span class="op">$</span>roster_finserv_<span class="dv">1</span>)<span class="op">/</span><span class="kw">nrow</span>(roster)</code></pre></div>
+<ol start="11" style="list-style-type: decimal">
+<li><p>What percentage of respondents said they have a bank account? To answer this question, you need to replace <code>roster_finserv_1</code> with the correct variable name.</p></li>
+<li><p>What do most people in the sample do for a living?</p></li>
+</ol>
+<p><br></p>
+</div>
+<div id="panel-refined-events-transactions-by-week" class="section level2">
+<h2>Panel (Refined Events + Transactions by Week)</h2>
+<ol start="13" style="list-style-type: decimal">
+<li>Now let’s look at the panel data frame, which is a refined combination of the events and transactions data. Check out the <a href="https://www.datafirst.uct.ac.za/dataportal/index.php/catalog/602/data-dictionary">data dictionary</a> for the panel dataset and the <a href="https://www.datafirst.uct.ac.za/dataportal/index.php/catalog/602/download/8845">“Financial Diaries Instrument Instructions”</a> file under documentation. Here is a snapshot of the one page form (front and back) used to record weekly transactions and events.</li>
+</ol>
+<p>Front: <img src="IMG/pp_form1.png" /></p>
+<p><br> Back: <img src="IMG/pp_form2.png" /></p>
+<p><br></p>
+<ol start="14" style="list-style-type: decimal">
+<li>What was the average weekly income (ZMW) for males and females (excluding dependents)?</li>
+</ol>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># load tidyverse library</span>
+  <span class="kw">library</span>(tidyverse)
+<span class="co"># summarize by gender </span>
+  panel <span class="op">%&gt;%</span>
+<span class="st">    </span><span class="co"># limit to non-dependents</span>
+<span class="st">    </span><span class="kw">filter</span>(panel_livelihood <span class="op">!=</span><span class="st"> &quot;Dependent&quot;</span>) <span class="op">%&gt;%</span>
+<span class="st">    </span><span class="co"># group by gender and calculate mean</span>
+<span class="st">    </span><span class="kw">group_by</span>(panel_gender) <span class="op">%&gt;%</span>
+<span class="st">    </span><span class="kw">summarise</span>(<span class="dt">mean_inflow_earned =</span> <span class="kw">mean</span>(panel_inflow_earned))</code></pre></div>
+<ol start="15" style="list-style-type: decimal">
+<li>What was the average weekly income (ZMW) by province?</li>
+</ol>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># summarize by province  </span>
+  panel <span class="op">%&gt;%</span>
+<span class="st">    </span><span class="kw">group_by</span>(panel_region) <span class="op">%&gt;%</span>
+<span class="st">    </span><span class="kw">summarise</span>(<span class="dt">mean_inflow_earned =</span> <span class="kw">mean</span>(panel_inflow_earned))</code></pre></div>
+<ol start="16" style="list-style-type: decimal">
+<li>Next, construct a new variable that represents the difference between money coming in and money going out on a weekly basis. Dividing by 9.5, the exchange rate at the time, gives you the difference in USD. Look just at a subsample of the folks who worked in Micro-Retail Businesses. What pattern of income and expenses characterizes most of these microenterprise workers?</li>
+</ol>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># make a new variable that is inflows minus outflows (in USD)</span>
+  panel<span class="op">$</span>diffUSD &lt;-<span class="st"> </span>(panel<span class="op">$</span>panel_inflow_all<span class="op">-</span>panel<span class="op">$</span>panel_outflow_all)<span class="op">/</span><span class="fl">9.5</span>
+  panel <span class="op">%&gt;%</span>
+<span class="st">    </span><span class="co"># limit to HHID == &quot;1039&quot;</span>
+<span class="st">    </span><span class="kw">filter</span>(panel_livelihood <span class="op">==</span><span class="st"> &quot;Micro-Retail Businesses&quot;</span>) <span class="op">%&gt;%</span>
+<span class="st">    </span><span class="kw">ggplot</span>(., <span class="kw">aes</span>(<span class="dt">x=</span>Week, <span class="dt">y=</span>diffUSD)) <span class="op">+</span>
+<span class="st">      </span><span class="kw">geom_line</span>() <span class="op">+</span>
+<span class="st">      </span><span class="kw">facet_wrap</span>(<span class="op">~</span>HHID)</code></pre></div>
+<ol start="17" style="list-style-type: decimal">
+<li>Now pick a person with some interesting variation and explore their dataset. Do an ascending sort on the <code>balance</code> and visually scan the inflows and outflows for the largest losses over the time series. Can you find anything to help explain why expenses were larger than income?</li>
+</ol>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">  person &lt;-<span class="st"> &quot;&quot;</span>   <span class="co"># enter the ID between the quotes</span>
+  x &lt;-<span class="st"> </span>panel[panel<span class="op">$</span>HHID<span class="op">==</span>person]
+  <span class="kw">View</span>(x)</code></pre></div>
+<ol start="18" style="list-style-type: decimal">
+<li>How do savings patterns change throughout the year based on livelihood type?</li>
+</ol>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">  panel <span class="op">%&gt;%</span><span class="st"> </span>
+<span class="st">    </span><span class="kw">group_by</span>(Week, panel_livelihood) <span class="op">%&gt;%</span>
+<span class="st">    </span><span class="kw">mutate</span>(<span class="dt">mean_savingsdeposit =</span> <span class="kw">mean</span>(panel_savingsdeposit)) <span class="op">%&gt;%</span>
+<span class="st">    </span><span class="kw">ggplot</span>(., <span class="kw">aes</span>(<span class="dt">x=</span>Week, <span class="dt">y=</span>mean_savingsdeposit)) <span class="op">+</span>
+<span class="st">      </span><span class="kw">geom_line</span>() <span class="op">+</span><span class="st"> </span><span class="kw">facet_wrap</span>(<span class="op">~</span>panel_livelihood) <span class="op">+</span>
+<span class="st">      </span><span class="kw">theme_minimal</span>() <span class="op">+</span>
+<span class="st">      </span><span class="kw">labs</span>(<span class="dt">title =</span> <span class="st">&quot;Mean weekly savings by livelihood type&quot;</span>, 
+           <span class="dt">subtitle =</span> <span class="st">&quot;Zambian Financial Diaries Project&quot;</span>) <span class="op">+</span>
+<span class="st">      </span><span class="kw">xlab</span>(<span class="st">&quot;Weeks&quot;</span>) <span class="op">+</span>
+<span class="st">      </span><span class="kw">ylab</span>(<span class="st">&quot;Average Savings Amount&quot;</span>)</code></pre></div>
+<ol start="19" style="list-style-type: decimal">
+<li>Summarize the events respondents reported throughout the year. The coding of free text responses gets more restrictive from <code>code1</code> to <code>code4</code>. Excluding day-to-day events, what was the most common type of event?</li>
+</ol>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">  <span class="kw">table</span>(events<span class="op">$</span>events_code1)
+  <span class="kw">table</span>(events<span class="op">$</span>events_code2)
+  <span class="kw">table</span>(events<span class="op">$</span>events_code3)
+  <span class="kw">table</span>(events<span class="op">$</span>events_code4)
+  <span class="co"># excluding day to day </span>
+  <span class="kw">table</span>(events<span class="op">$</span>events_code3[events<span class="op">$</span>events_code4<span class="op">!=</span><span class="st">&quot;Day-to-Day Expenses&quot;</span>])</code></pre></div>
+<ol start="20" style="list-style-type: decimal">
+<li>Stretch goal: Try to ask and answer a question with the dataset.</li>
+</ol>
+</div>
+
+
+
+</div>
+</div>
+
+</div>
+
+<script>
+
+// add bootstrap table styles to pandoc tables
+function bootstrapStylePandocTables() {
+  $('tr.header').parent('thead').parent('table').addClass('table table-condensed');
+}
+$(document).ready(function () {
+  bootstrapStylePandocTables();
+});
+
+
+</script>
+
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+  (function () {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    script.src  = "https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML";
+    document.getElementsByTagName("head")[0].appendChild(script);
+  })();
+</script>
+
+</body>
+</html>

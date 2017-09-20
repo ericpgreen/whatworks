@@ -1,0 +1,199 @@
+---
+title: "Data Exploration: Portfolios of the Poor"
+---
+<br>
+
+```{r, include=FALSE}
+  library(tidyverse)
+  library(ggplot2)
+```
+
+
+## Introduction
+
+In this activity, you and a partner will explore microdata from the [2014-15 Zambian Financial Diaries Project](https://www.datafirst.uct.ac.za/dataportal/index.php/catalog/602). The objectives of this exercise are to:
+
+* discover how data are collected using the financial diaries method
+* use R to explore data
+* interpret basic output
+* analyze trends in the financial lives of the poor
+
+## Setup
+
+1. One student should open [this link](https://www.datafirst.uct.ac.za/dataportal/index.php/catalog/602) to the data catalog while the other logs into [https://vm-manage.oit.duke.edu/containers](https://vm-manage.oit.duke.edu/containers). After entering your NetID, click on the link to "RStudio" to begin your R session.
+
+2. Click on "File" and choose "New File" and "R Notebook". Change the title to "Portfolios of the Poor".
+
+3. Click "Preview". You will be prompted to save the file. Make a new folder for this class and name the file "portfolios". When you save, your browser might prompt you to allow pop-ups from RStudio.
+
+![](img/pp_save.png)
+
+4. Delete everything from line 6 down. 
+
+<br>
+
+## The Data
+
+5. Now we need to get the data. Use the insert button to insert a new R code chunk.
+
+![](img/chunk.png)
+
+6. Then copy and paste in the following lines to download and load the data files.
+
+```{r, cache=TRUE}
+  options(scipen=999)
+# roster data
+  download.file("https://www.dropbox.com/s/d6jmzglw1hwt68c/roster.RData?dl=1",
+                "roster.rData")
+  load("roster.rData")
+# panel data
+  download.file("https://www.dropbox.com/s/6ab2nyuotsabgfj/panel.RData?dl=1",
+                "panel.rData")
+  load("panel.rData")
+# events data
+  download.file("https://www.dropbox.com/s/kkn1hola3uock7j/events.RData?dl=1",
+                "events.rData")
+  load("events.rData")
+# transactions data
+  download.file("https://www.dropbox.com/s/6axdbi2h7s3kgto/trans.RData?dl=1",
+                "trans.rData")
+  load("trans.rData")
+# cross section data
+  download.file("https://www.dropbox.com/s/ckv4cgouu5x2yi6/xsection.RData?dl=1",
+                "xsection.rData")
+  load("xsection.rData")
+```
+
+If successful, you will see five dataframes in the Environment tab. Check out the "Data Description" section of the data catalog entry (not in RStudio) and the [User's Guide](https://www.datafirst.uct.ac.za/dataportal/index.php/catalog/602/download/8847) to understand each data source. 
+
+![](img/pp_env.png)
+
+7. Read the User's Guide to understand key details of the study design.
+
+<br>
+
+## Roster
+
+8. Click on `roster` data frame in the Environment. To make sense of the 33 variables in this data frame, find the correct [data dictionary in the data catalog](https://www.datafirst.uct.ac.za/dataportal/index.php/catalog/602/data_dictionary) and review the [enrollment questionnaire](https://www.datafirst.uct.ac.za/dataportal/index.php/catalog/602/related_materials).
+
+9. Make a histogram of the age of people enrolled in the study. Remember to paste this code *inside* of a R code chunk.
+
+```{r, message=FALSE, eval=FALSE}
+  library(ggplot2)
+  ggplot(roster, aes(roster_age)) +
+    geom_histogram() +
+    theme_minimal() +
+    labs(title = "Mean age of enrolled study participants at baseline", 
+         subtitle = "Zambian Financial Diaries Project") +
+    xlab("Age") +
+    geom_vline(xintercept=mean(roster$roster_age),
+               linetype="dotted",
+               color="red") +
+    annotate("text",
+             x=mean(roster$roster_age), y=30,
+             label=paste0("Mean age = ", round(mean(roster$roster_age), 1)),
+             hjust = 0)
+```
+
+10. What percentage of respondents said they used a bank in the past 6 months?
+
+```{r, eval=FALSE}
+# counts
+  table(roster$roster_finserv_1)
+# proportions
+  table(roster$roster_finserv_1)/nrow(roster)
+```
+
+11. What percentage of respondents said they have a bank account? To answer this question, you need to replace `roster_finserv_1` with the correct variable name.
+
+12. What do most people in the sample do for a living?
+
+<br>
+
+## Panel (Refined Events + Transactions by Week)
+
+13. Now let's look at the panel data frame, which is a refined combination of the events and transactions data.  Check out the [data dictionary](https://www.datafirst.uct.ac.za/dataportal/index.php/catalog/602/data-dictionary) for the panel dataset and the ["Financial Diaries Instrument Instructions"](https://www.datafirst.uct.ac.za/dataportal/index.php/catalog/602/download/8845) file under documentation. Here is a snapshot of the one page form (front and back) used to record weekly transactions and events.
+
+Front:
+![](img/pp_form1.png)
+
+<br>
+Back:
+![](img/pp_form2.png)
+
+<br>
+
+14. What was the average weekly income (ZMW) for males and females (excluding dependents)?
+
+```{r, eval=FALSE}
+# load tidyverse library
+  library(tidyverse)
+# summarize by gender 
+  panel %>%
+    # limit to non-dependents
+    filter(panel_livelihood != "Dependent") %>%
+    # group by gender and calculate mean
+    group_by(panel_gender) %>%
+    summarise(mean_inflow_earned = mean(panel_inflow_earned))
+```
+
+15. What was the average weekly income (ZMW) by province?
+
+```{r, eval=FALSE}
+# summarize by province  
+  panel %>%
+    group_by(panel_region) %>%
+    summarise(mean_inflow_earned = mean(panel_inflow_earned))
+```
+
+16. Next, construct a new variable that represents the difference between money coming in and money going out on a weekly basis. Dividing by 9.5, the exchange rate at the time, gives you the difference in USD. Look just at a subsample of the folks who worked in Micro-Retail Businesses. What pattern of income and expenses characterizes most of these microenterprise workers?
+
+```{r, eval=FALSE}
+# make a new variable that is inflows minus outflows (in USD)
+  panel$diffUSD <- (panel$panel_inflow_all-panel$panel_outflow_all)/9.5
+  panel %>%
+    # limit to HHID == "1039"
+    filter(panel_livelihood == "Micro-Retail Businesses") %>%
+    ggplot(., aes(x=Week, y=diffUSD)) +
+      geom_line() +
+      facet_wrap(~HHID)
+  
+```
+
+17. Now pick a person with some interesting variation and explore their dataset. Do an ascending sort on the `balance` and visually scan the inflows and outflows for the largest losses over the time series. Can you find anything to help explain why expenses were larger than income?
+
+```{r, eval=FALSE}
+  person <- ""   # enter the ID between the quotes
+  x <- panel[panel$HHID==person]
+  View(x)
+
+```
+
+18. How do savings patterns change throughout the year based on livelihood type?
+
+```{r, eval=FALSE}
+  panel %>% 
+    group_by(Week, panel_livelihood) %>%
+    mutate(mean_savingsdeposit = mean(panel_savingsdeposit)) %>%
+    ggplot(., aes(x=Week, y=mean_savingsdeposit)) +
+      geom_line() + facet_wrap(~panel_livelihood) +
+      theme_minimal() +
+      labs(title = "Mean weekly savings by livelihood type", 
+           subtitle = "Zambian Financial Diaries Project") +
+      xlab("Weeks") +
+      ylab("Average Savings Amount")
+```
+
+19. Summarize the events respondents reported throughout the year. The coding of free text responses gets more restrictive from `code1` to `code4`. Excluding day-to-day events, what was the most common type of event?
+
+```{r, eval=FALSE}
+  table(events$events_code1)
+  table(events$events_code2)
+  table(events$events_code3)
+  table(events$events_code4)
+  # excluding day to day 
+  table(events$events_code3[events$events_code4!="Day-to-Day Expenses"])
+```
+
+20. Stretch goal: Try to ask and answer a question with the dataset.
+
