@@ -173,7 +173,7 @@ Back:
 
 ```{r, eval=FALSE, echo=TRUE}
   person <- ""   # enter the ID between the quotes
-  x <- panel[panel$HHID==person]
+  x <- panel[panel$HHID==person, ]
   View(x)
 ```
 

@@ -507,7 +507,7 @@ div.tocify {
 <li>Now pick a person with some interesting variation and explore their dataset. Do an ascending sort on the <code>balance</code> and visually scan the inflows and outflows for the largest losses over the time series. Can you find anything to help explain why expenses were larger than income?</li>
 </ol>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">  person &lt;-<span class="st"> &quot;&quot;</span>   <span class="co"># enter the ID between the quotes</span>
-  x &lt;-<span class="st"> </span>panel[panel<span class="op">$</span>HHID<span class="op">==</span>person]
+  x &lt;-<span class="st"> </span>panel[panel<span class="op">$</span>HHID<span class="op">==</span>person, ]
   <span class="kw">View</span>(x)</code></pre></div>
 <div class="figure">
 <img src="IMG/pp_person.png" />
