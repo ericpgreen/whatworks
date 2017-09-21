@@ -127,7 +127,7 @@ Back:
 
 <br>
 
-14. What was the average weekly income (ZMW) for males and females (excluding dependents)?
+14. What was the average weekly income (ZMW) for males and females (excluding dependents)? To run this code chunk, you might need to first run the following command in the console to install the `tidyverse` package: `install.packages("tidyverse")`
 
 ```{r, eval=FALSE, echo=TRUE}
 # load tidyverse library
