@@ -78,7 +78,7 @@ If successful, you will see five dataframes in the Environment tab. Check out th
 
 9. Make a histogram of the age of people enrolled in the study. Remember to type this code *inside* of a R code chunk.
 
-```{r, message=FALSE, eval=FALSE, echo=FALSE}
+```{r, message=FALSE, eval=FALSE, echo=TRUE}
   library(ggplot2)
   ggplot(roster, aes(roster_age)) +
     geom_histogram() +
@@ -99,7 +99,7 @@ If successful, you will see five dataframes in the Environment tab. Check out th
 
 10. What percentage of respondents said they used a bank in the past 6 months?
 
-```{r, eval=FALSE, echo=FALSE}
+```{r, eval=FALSE, echo=TRUE}
 # counts
   table(roster$roster_finserv_1)
 # proportions
@@ -129,7 +129,7 @@ Back:
 
 14. What was the average weekly income (ZMW) for males and females (excluding dependents)?
 
-```{r, eval=FALSE, echo=FALSE}
+```{r, eval=FALSE, echo=TRUE}
 # load tidyverse library
   library(tidyverse)
 # summarize by gender 
@@ -145,7 +145,7 @@ Back:
 
 15. What was the average weekly income (ZMW) by province?
 
-```{r, eval=FALSE, echo=FALSE}
+```{r, eval=FALSE, echo=TRUE}
 # summarize by province  
   panel %>%
     group_by(panel_region) %>%
@@ -156,7 +156,7 @@ Back:
 
 16. Next, construct a new variable that represents the difference between money coming in and money going out on a weekly basis. Dividing by 9.5, the exchange rate at the time, gives you the difference in USD. Look just at a subsample of the folks who worked in Micro-Retail Businesses. What pattern of income and expenses characterizes most of these microenterprise workers?
 
-```{r, eval=FALSE, echo=FALSE}
+```{r, eval=FALSE, echo=TRUE}
 # make a new variable that is inflows minus outflows (in USD)
   panel$diffUSD <- (panel$panel_inflow_all-panel$panel_outflow_all)/9.5
   panel %>%
@@ -171,7 +171,7 @@ Back:
 
 17. Now pick a person with some interesting variation and explore their dataset. Do an ascending sort on the `balance` and visually scan the inflows and outflows for the largest losses over the time series. Can you find anything to help explain why expenses were larger than income?
 
-```{r, eval=FALSE, echo=FALSE}
+```{r, eval=FALSE, echo=TRUE}
   person <- ""   # enter the ID between the quotes
   x <- panel[panel$HHID==person]
   View(x)
@@ -181,7 +181,7 @@ Back:
 
 18. How do savings patterns change throughout the year based on livelihood type?
 
-```{r, eval=FALSE, echo=FALSE}
+```{r, eval=FALSE, echo=TRUE}
   panel %>% 
     group_by(Week, panel_livelihood) %>%
     mutate(mean_savingsdeposit = mean(panel_savingsdeposit)) %>%
@@ -198,7 +198,7 @@ Back:
 
 19. Summarize the events respondents reported throughout the year. The coding of free text responses gets more restrictive from `code1` to `code4`. Excluding day-to-day events, what was the most common type of event?
 
-```{r, eval=FALSE, echo=FALSE}
+```{r, eval=FALSE, echo=TRUE}
   table(events$events_code1)
   table(events$events_code2)
   table(events$events_code3)

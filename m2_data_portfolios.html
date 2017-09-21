@@ -419,6 +419,20 @@ div.tocify {
 <li><p>Click on <code>roster</code> data frame in the Environment. To make sense of the 33 variables in this data frame, find the correct <a href="https://www.datafirst.uct.ac.za/dataportal/index.php/catalog/602/data_dictionary">data dictionary in the data catalog</a> and review the <a href="https://www.datafirst.uct.ac.za/dataportal/index.php/catalog/602/related_materials">enrollment questionnaire</a>.</p></li>
 <li><p>Make a histogram of the age of people enrolled in the study. Remember to type this code <em>inside</em> of a R code chunk.</p></li>
 </ol>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">  <span class="kw">library</span>(ggplot2)
+  <span class="kw">ggplot</span>(roster, <span class="kw">aes</span>(roster_age)) <span class="op">+</span>
+<span class="st">    </span><span class="kw">geom_histogram</span>() <span class="op">+</span>
+<span class="st">    </span><span class="kw">theme_minimal</span>() <span class="op">+</span>
+<span class="st">    </span><span class="kw">labs</span>(<span class="dt">title =</span> <span class="st">&quot;Mean age of enrolled study participants at baseline&quot;</span>, 
+         <span class="dt">subtitle =</span> <span class="st">&quot;Zambian Financial Diaries Project&quot;</span>) <span class="op">+</span>
+<span class="st">    </span><span class="kw">xlab</span>(<span class="st">&quot;Age&quot;</span>) <span class="op">+</span>
+<span class="st">    </span><span class="kw">geom_vline</span>(<span class="dt">xintercept=</span><span class="kw">mean</span>(roster<span class="op">$</span>roster_age),
+               <span class="dt">linetype=</span><span class="st">&quot;dotted&quot;</span>,
+               <span class="dt">color=</span><span class="st">&quot;red&quot;</span>) <span class="op">+</span>
+<span class="st">    </span><span class="kw">annotate</span>(<span class="st">&quot;text&quot;</span>,
+             <span class="dt">x=</span><span class="kw">mean</span>(roster<span class="op">$</span>roster_age), <span class="dt">y=</span><span class="dv">30</span>,
+             <span class="dt">label=</span><span class="kw">paste0</span>(<span class="st">&quot;Mean age = &quot;</span>, <span class="kw">round</span>(<span class="kw">mean</span>(roster<span class="op">$</span>roster_age), <span class="dv">1</span>)),
+             <span class="dt">hjust =</span> <span class="dv">0</span>)</code></pre></div>
 <div class="figure">
 <img src="IMG/pp_plot1.png" />
 
@@ -426,6 +440,10 @@ div.tocify {
 <ol start="10" style="list-style-type: decimal">
 <li>What percentage of respondents said they used a bank in the past 6 months?</li>
 </ol>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># counts</span>
+  <span class="kw">table</span>(roster<span class="op">$</span>roster_finserv_<span class="dv">1</span>)
+<span class="co"># proportions</span>
+  <span class="kw">table</span>(roster<span class="op">$</span>roster_finserv_<span class="dv">1</span>)<span class="op">/</span><span class="kw">nrow</span>(roster)</code></pre></div>
 <div class="figure">
 <img src="IMG/pp_per1.png" />
 
@@ -447,6 +465,15 @@ div.tocify {
 <ol start="14" style="list-style-type: decimal">
 <li>What was the average weekly income (ZMW) for males and females (excluding dependents)?</li>
 </ol>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># load tidyverse library</span>
+  <span class="kw">library</span>(tidyverse)
+<span class="co"># summarize by gender </span>
+  panel <span class="op">%&gt;%</span>
+<span class="st">    </span><span class="co"># limit to non-dependents</span>
+<span class="st">    </span><span class="kw">filter</span>(panel_livelihood <span class="op">!=</span><span class="st"> &quot;Dependent&quot;</span>) <span class="op">%&gt;%</span>
+<span class="st">    </span><span class="co"># group by gender and calculate mean</span>
+<span class="st">    </span><span class="kw">group_by</span>(panel_gender) <span class="op">%&gt;%</span>
+<span class="st">    </span><span class="kw">summarise</span>(<span class="dt">mean_inflow_earned =</span> <span class="kw">mean</span>(panel_inflow_earned))</code></pre></div>
 <div class="figure">
 <img src="IMG/pp_panel1.png" />
 
@@ -454,6 +481,10 @@ div.tocify {
 <ol start="15" style="list-style-type: decimal">
 <li>What was the average weekly income (ZMW) by province?</li>
 </ol>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># summarize by province  </span>
+  panel <span class="op">%&gt;%</span>
+<span class="st">    </span><span class="kw">group_by</span>(panel_region) <span class="op">%&gt;%</span>
+<span class="st">    </span><span class="kw">summarise</span>(<span class="dt">mean_inflow_earned =</span> <span class="kw">mean</span>(panel_inflow_earned))</code></pre></div>
 <div class="figure">
 <img src="IMG/pp_panel2.png" />
 
@@ -461,6 +492,13 @@ div.tocify {
 <ol start="16" style="list-style-type: decimal">
 <li>Next, construct a new variable that represents the difference between money coming in and money going out on a weekly basis. Dividing by 9.5, the exchange rate at the time, gives you the difference in USD. Look just at a subsample of the folks who worked in Micro-Retail Businesses. What pattern of income and expenses characterizes most of these microenterprise workers?</li>
 </ol>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># make a new variable that is inflows minus outflows (in USD)</span>
+  panel<span class="op">$</span>diffUSD &lt;-<span class="st"> </span>(panel<span class="op">$</span>panel_inflow_all<span class="op">-</span>panel<span class="op">$</span>panel_outflow_all)<span class="op">/</span><span class="fl">9.5</span>
+  panel <span class="op">%&gt;%</span>
+<span class="st">    </span><span class="kw">filter</span>(panel_livelihood <span class="op">==</span><span class="st"> &quot;Micro-Retail Businesses&quot;</span>) <span class="op">%&gt;%</span>
+<span class="st">    </span><span class="kw">ggplot</span>(., <span class="kw">aes</span>(<span class="dt">x=</span>Week, <span class="dt">y=</span>diffUSD)) <span class="op">+</span>
+<span class="st">      </span><span class="kw">geom_line</span>() <span class="op">+</span>
+<span class="st">      </span><span class="kw">facet_wrap</span>(<span class="op">~</span>HHID)</code></pre></div>
 <div class="figure">
 <img src="IMG/pp_panel3.png" />
 
@@ -468,6 +506,9 @@ div.tocify {
 <ol start="17" style="list-style-type: decimal">
 <li>Now pick a person with some interesting variation and explore their dataset. Do an ascending sort on the <code>balance</code> and visually scan the inflows and outflows for the largest losses over the time series. Can you find anything to help explain why expenses were larger than income?</li>
 </ol>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">  person &lt;-<span class="st"> &quot;&quot;</span>   <span class="co"># enter the ID between the quotes</span>
+  x &lt;-<span class="st"> </span>panel[panel<span class="op">$</span>HHID<span class="op">==</span>person]
+  <span class="kw">View</span>(x)</code></pre></div>
 <div class="figure">
 <img src="IMG/pp_person.png" />
 
@@ -475,6 +516,16 @@ div.tocify {
 <ol start="18" style="list-style-type: decimal">
 <li>How do savings patterns change throughout the year based on livelihood type?</li>
 </ol>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">  panel <span class="op">%&gt;%</span><span class="st"> </span>
+<span class="st">    </span><span class="kw">group_by</span>(Week, panel_livelihood) <span class="op">%&gt;%</span>
+<span class="st">    </span><span class="kw">mutate</span>(<span class="dt">mean_savingsdeposit =</span> <span class="kw">mean</span>(panel_savingsdeposit)) <span class="op">%&gt;%</span>
+<span class="st">    </span><span class="kw">ggplot</span>(., <span class="kw">aes</span>(<span class="dt">x=</span>Week, <span class="dt">y=</span>mean_savingsdeposit)) <span class="op">+</span>
+<span class="st">      </span><span class="kw">geom_line</span>() <span class="op">+</span><span class="st"> </span><span class="kw">facet_wrap</span>(<span class="op">~</span>panel_livelihood) <span class="op">+</span>
+<span class="st">      </span><span class="kw">theme_minimal</span>() <span class="op">+</span>
+<span class="st">      </span><span class="kw">labs</span>(<span class="dt">title =</span> <span class="st">&quot;Mean weekly savings by livelihood type&quot;</span>, 
+           <span class="dt">subtitle =</span> <span class="st">&quot;Zambian Financial Diaries Project&quot;</span>) <span class="op">+</span>
+<span class="st">      </span><span class="kw">xlab</span>(<span class="st">&quot;Weeks&quot;</span>) <span class="op">+</span>
+<span class="st">      </span><span class="kw">ylab</span>(<span class="st">&quot;Average Savings Amount&quot;</span>)</code></pre></div>
 <div class="figure">
 <img src="IMG/pp_panel4.png" />
 
@@ -482,6 +533,12 @@ div.tocify {
 <ol start="19" style="list-style-type: decimal">
 <li>Summarize the events respondents reported throughout the year. The coding of free text responses gets more restrictive from <code>code1</code> to <code>code4</code>. Excluding day-to-day events, what was the most common type of event?</li>
 </ol>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">  <span class="kw">table</span>(events<span class="op">$</span>events_code1)
+  <span class="kw">table</span>(events<span class="op">$</span>events_code2)
+  <span class="kw">table</span>(events<span class="op">$</span>events_code3)
+  <span class="kw">table</span>(events<span class="op">$</span>events_code4)
+  <span class="co"># excluding day to day </span>
+  <span class="kw">table</span>(events<span class="op">$</span>events_code3[events<span class="op">$</span>events_code4<span class="op">!=</span><span class="st">&quot;Day-to-Day Expenses&quot;</span>])</code></pre></div>
 <div class="figure">
 <img src="IMG/pp_table.png" />
 
