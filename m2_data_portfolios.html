@@ -433,10 +433,9 @@ div.tocify {
              <span class="dt">x=</span><span class="kw">mean</span>(roster<span class="op">$</span>roster_age), <span class="dt">y=</span><span class="dv">30</span>,
              <span class="dt">label=</span><span class="kw">paste0</span>(<span class="st">&quot;Mean age = &quot;</span>, <span class="kw">round</span>(<span class="kw">mean</span>(roster<span class="op">$</span>roster_age), <span class="dv">1</span>)),
              <span class="dt">hjust =</span> <span class="dv">0</span>)</code></pre></div>
-<div class="figure">
-<img src="IMG/pp_plot1.png" />
-
-</div>
+<!--
+![](img/pp_plot1.png)
+-->
 <ol start="10" style="list-style-type: decimal">
 <li>What percentage of respondents said they used a bank in the past 6 months?</li>
 </ol>
@@ -444,10 +443,9 @@ div.tocify {
   <span class="kw">table</span>(roster<span class="op">$</span>roster_finserv_<span class="dv">1</span>)
 <span class="co"># proportions</span>
   <span class="kw">table</span>(roster<span class="op">$</span>roster_finserv_<span class="dv">1</span>)<span class="op">/</span><span class="kw">nrow</span>(roster)</code></pre></div>
-<div class="figure">
-<img src="IMG/pp_per1.png" />
-
-</div>
+<!--
+![](img/pp_per1.png)
+-->
 <ol start="11" style="list-style-type: decimal">
 <li><p>What percentage of respondents said they have a bank account? To answer this question, you need to replace <code>roster_finserv_1</code> with the correct variable name.</p></li>
 <li><p>What do most people in the sample do for a living?</p></li>
@@ -474,10 +472,9 @@ div.tocify {
 <span class="st">    </span><span class="co"># group by gender and calculate mean</span>
 <span class="st">    </span><span class="kw">group_by</span>(panel_gender) <span class="op">%&gt;%</span>
 <span class="st">    </span><span class="kw">summarise</span>(<span class="dt">mean_inflow_earned =</span> <span class="kw">mean</span>(panel_inflow_earned))</code></pre></div>
-<div class="figure">
-<img src="IMG/pp_panel1.png" />
-
-</div>
+<!--
+![](img/pp_panel1.png)
+-->
 <ol start="15" style="list-style-type: decimal">
 <li>What was the average weekly income (ZMW) by province?</li>
 </ol>
@@ -485,10 +482,9 @@ div.tocify {
   panel <span class="op">%&gt;%</span>
 <span class="st">    </span><span class="kw">group_by</span>(panel_region) <span class="op">%&gt;%</span>
 <span class="st">    </span><span class="kw">summarise</span>(<span class="dt">mean_inflow_earned =</span> <span class="kw">mean</span>(panel_inflow_earned))</code></pre></div>
-<div class="figure">
-<img src="IMG/pp_panel2.png" />
-
-</div>
+<!--
+![](img/pp_panel2.png)
+-->
 <ol start="16" style="list-style-type: decimal">
 <li>Next, construct a new variable that represents the difference between money coming in and money going out on a weekly basis. Dividing by 9.5, the exchange rate at the time, gives you the difference in USD. Look just at a subsample of the folks who worked in Micro-Retail Businesses. What pattern of income and expenses characterizes most of these microenterprise workers?</li>
 </ol>
@@ -499,20 +495,18 @@ div.tocify {
 <span class="st">    </span><span class="kw">ggplot</span>(., <span class="kw">aes</span>(<span class="dt">x=</span>Week, <span class="dt">y=</span>diffUSD)) <span class="op">+</span>
 <span class="st">      </span><span class="kw">geom_line</span>() <span class="op">+</span>
 <span class="st">      </span><span class="kw">facet_wrap</span>(<span class="op">~</span>HHID)</code></pre></div>
-<div class="figure">
-<img src="IMG/pp_panel3.png" />
-
-</div>
+<!--
+![](img/pp_panel3.png)
+-->
 <ol start="17" style="list-style-type: decimal">
 <li>Now pick a person with some interesting variation and explore their dataset. Do an ascending sort on the <code>balance</code> and visually scan the inflows and outflows for the largest losses over the time series. Can you find anything to help explain why expenses were larger than income?</li>
 </ol>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">  person &lt;-<span class="st"> &quot;&quot;</span>   <span class="co"># enter the ID between the quotes</span>
   x &lt;-<span class="st"> </span>panel[panel<span class="op">$</span>HHID<span class="op">==</span>person, ]
   <span class="kw">View</span>(x)</code></pre></div>
-<div class="figure">
-<img src="IMG/pp_person.png" />
-
-</div>
+<!--
+![](img/pp_person.png)
+-->
 <ol start="18" style="list-style-type: decimal">
 <li>How do savings patterns change throughout the year based on livelihood type?</li>
 </ol>
@@ -526,10 +520,9 @@ div.tocify {
            <span class="dt">subtitle =</span> <span class="st">&quot;Zambian Financial Diaries Project&quot;</span>) <span class="op">+</span>
 <span class="st">      </span><span class="kw">xlab</span>(<span class="st">&quot;Weeks&quot;</span>) <span class="op">+</span>
 <span class="st">      </span><span class="kw">ylab</span>(<span class="st">&quot;Average Savings Amount&quot;</span>)</code></pre></div>
-<div class="figure">
-<img src="IMG/pp_panel4.png" />
-
-</div>
+<!--
+![](img/pp_panel4.png)
+-->
 <ol start="19" style="list-style-type: decimal">
 <li>Summarize the events respondents reported throughout the year. The coding of free text responses gets more restrictive from <code>code1</code> to <code>code4</code>. Excluding day-to-day events, what was the most common type of event?</li>
 </ol>
@@ -539,10 +532,9 @@ div.tocify {
   <span class="kw">table</span>(events<span class="op">$</span>events_code4)
   <span class="co"># excluding day to day </span>
   <span class="kw">table</span>(events<span class="op">$</span>events_code3[events<span class="op">$</span>events_code4<span class="op">!=</span><span class="st">&quot;Day-to-Day Expenses&quot;</span>])</code></pre></div>
-<div class="figure">
-<img src="IMG/pp_table.png" />
-
-</div>
+<!--
+![](img/pp_table.png)
+-->
 <ol start="20" style="list-style-type: decimal">
 <li>Stretch goal: Try to ask and answer a question with the dataset.</li>
 </ol>
