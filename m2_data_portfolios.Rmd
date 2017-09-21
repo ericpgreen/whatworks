@@ -76,9 +76,9 @@ If successful, you will see five dataframes in the Environment tab. Check out th
 
 8. Click on `roster` data frame in the Environment. To make sense of the 33 variables in this data frame, find the correct [data dictionary in the data catalog](https://www.datafirst.uct.ac.za/dataportal/index.php/catalog/602/data_dictionary) and review the [enrollment questionnaire](https://www.datafirst.uct.ac.za/dataportal/index.php/catalog/602/related_materials).
 
-9. Make a histogram of the age of people enrolled in the study. Remember to paste this code *inside* of a R code chunk.
+9. Make a histogram of the age of people enrolled in the study. Remember to type this code *inside* of a R code chunk.
 
-```{r, message=FALSE, eval=FALSE}
+```{r, message=FALSE, eval=FALSE, echo=FALSE}
   library(ggplot2)
   ggplot(roster, aes(roster_age)) +
     geom_histogram() +
@@ -95,14 +95,18 @@ If successful, you will see five dataframes in the Environment tab. Check out th
              hjust = 0)
 ```
 
+![](img/pp_plot1.png)
+
 10. What percentage of respondents said they used a bank in the past 6 months?
 
-```{r, eval=FALSE}
+```{r, eval=FALSE, echo=FALSE}
 # counts
   table(roster$roster_finserv_1)
 # proportions
   table(roster$roster_finserv_1)/nrow(roster)
 ```
+
+![](img/pp_per1.png)
 
 11. What percentage of respondents said they have a bank account? To answer this question, you need to replace `roster_finserv_1` with the correct variable name.
 
@@ -125,7 +129,7 @@ Back:
 
 14. What was the average weekly income (ZMW) for males and females (excluding dependents)?
 
-```{r, eval=FALSE}
+```{r, eval=FALSE, echo=FALSE}
 # load tidyverse library
   library(tidyverse)
 # summarize by gender 
@@ -137,22 +141,25 @@ Back:
     summarise(mean_inflow_earned = mean(panel_inflow_earned))
 ```
 
+![](img/pp_panel1.png)
+
 15. What was the average weekly income (ZMW) by province?
 
-```{r, eval=FALSE}
+```{r, eval=FALSE, echo=FALSE}
 # summarize by province  
   panel %>%
     group_by(panel_region) %>%
     summarise(mean_inflow_earned = mean(panel_inflow_earned))
 ```
 
+![](img/pp_panel2.png)
+
 16. Next, construct a new variable that represents the difference between money coming in and money going out on a weekly basis. Dividing by 9.5, the exchange rate at the time, gives you the difference in USD. Look just at a subsample of the folks who worked in Micro-Retail Businesses. What pattern of income and expenses characterizes most of these microenterprise workers?
 
-```{r, eval=FALSE}
+```{r, eval=FALSE, echo=FALSE}
 # make a new variable that is inflows minus outflows (in USD)
   panel$diffUSD <- (panel$panel_inflow_all-panel$panel_outflow_all)/9.5
   panel %>%
-    # limit to HHID == "1039"
     filter(panel_livelihood == "Micro-Retail Businesses") %>%
     ggplot(., aes(x=Week, y=diffUSD)) +
       geom_line() +
@@ -160,18 +167,21 @@ Back:
   
 ```
 
+![](img/pp_panel3.png)
+
 17. Now pick a person with some interesting variation and explore their dataset. Do an ascending sort on the `balance` and visually scan the inflows and outflows for the largest losses over the time series. Can you find anything to help explain why expenses were larger than income?
 
-```{r, eval=FALSE}
+```{r, eval=FALSE, echo=FALSE}
   person <- ""   # enter the ID between the quotes
   x <- panel[panel$HHID==person]
   View(x)
-
 ```
+
+![](img/pp_person.png)
 
 18. How do savings patterns change throughout the year based on livelihood type?
 
-```{r, eval=FALSE}
+```{r, eval=FALSE, echo=FALSE}
   panel %>% 
     group_by(Week, panel_livelihood) %>%
     mutate(mean_savingsdeposit = mean(panel_savingsdeposit)) %>%
@@ -184,9 +194,11 @@ Back:
       ylab("Average Savings Amount")
 ```
 
+![](img/pp_panel4.png)
+
 19. Summarize the events respondents reported throughout the year. The coding of free text responses gets more restrictive from `code1` to `code4`. Excluding day-to-day events, what was the most common type of event?
 
-```{r, eval=FALSE}
+```{r, eval=FALSE, echo=FALSE}
   table(events$events_code1)
   table(events$events_code2)
   table(events$events_code3)
@@ -194,6 +206,8 @@ Back:
   # excluding day to day 
   table(events$events_code3[events$events_code4!="Day-to-Day Expenses"])
 ```
+
+![](img/pp_table.png)
 
 20. Stretch goal: Try to ask and answer a question with the dataset.
 
