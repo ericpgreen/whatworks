@@ -112,9 +112,6 @@ If successful, you will see five dataframes in the Environment tab. Check out th
   table(roster$roster_finserv_1)/nrow(roster)
 ```
 
-<!--
-![](img/pp_per1.png)
--->
 
 11. What percentage of respondents said they have a bank account? To answer this question, you need to replace `roster_finserv_1` with the correct variable name.
 
@@ -149,9 +146,6 @@ Back:
     summarise(mean_inflow_earned = mean(panel_inflow_earned))
 ```
 
-<!--
-![](img/pp_panel1.png)
--->
 
 15. What was the average weekly income (ZMW) by province?
 
@@ -162,9 +156,6 @@ Back:
     summarise(mean_inflow_earned = mean(panel_inflow_earned))
 ```
 
-<!--
-![](img/pp_panel2.png)
--->
 
 16. Next, construct a new variable that represents the difference between money coming in and money going out on a weekly basis. Dividing by 9.5, the exchange rate at the time, gives you the difference in USD. Look just at a subsample of the folks who worked in Micro-Retail Businesses. What pattern of income and expenses characterizes most of these microenterprise workers? Click on the popout button near the top right of the chart to make it bigger. When the image renders, you should see lots of "small multiples"—little time series plots for each person.
 
@@ -179,9 +170,6 @@ Back:
   
 ```
 
-<!--
-![](img/pp_panel3.png)
--->
 
 17. Now pick a person with some interesting variation and explore their dataset. Do an ascending sort on the `balance` and visually scan the inflows and outflows for the largest losses over the time series. Can you find anything to help explain why expenses were larger than income?
 
@@ -191,9 +179,7 @@ Back:
   View(x)
 ```
 
-<!--
-![](img/pp_person.png)
--->
+
 
 18. How do savings patterns change throughout the year based on livelihood type?
 
@@ -210,9 +196,7 @@ Back:
       ylab("Average Savings Amount")
 ```
 
-<!--
-![](img/pp_panel4.png)
--->
+
 
 19. Summarize the events respondents reported throughout the year. The coding of free text responses gets more restrictive from `code1` to `code4`. Excluding day-to-day events, what was the most common type of event?
 
@@ -225,9 +209,7 @@ Back:
   table(events$events_code3[events$events_code4!="Day-to-Day Expenses"])
 ```
 
-<!--
-![](img/pp_table.png)
--->
+
 
 20. Stretch goal: Try to ask and answer a question with the dataset.
 
