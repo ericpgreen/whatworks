@@ -27,7 +27,7 @@ You can find the readings on Piazza.
 
 ## Oct 5: Why Are Some People and Places Poor?
 
-Tutorial TBA
+In this session we will explore data from the [Gapminder website](http://www.gapminder.org/).
 
 ## Oct 12: Film Screening
 
@@ -44,7 +44,7 @@ You can find the readings on Piazza.
 
 ## Oct 19: Why Are Some People and Places Sick?
 
-Tutorial TBA
+In this session we will explore data from the [Global Burden of Disease studies](http://www.healthdata.org/).
 
 ## Oct 24: Writing Workshop #2
 
